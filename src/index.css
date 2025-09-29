@@ -30,6 +30,11 @@ body {
   min-width: 320px;
   min-height: 100dvh;
   background: linear-gradient(#0f293eff, #180406ff);
+  overflow: hidden;
+}
+
+html {
+  overflow: hidden;
 }
 
 h1 {

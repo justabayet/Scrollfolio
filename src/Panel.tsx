@@ -33,7 +33,8 @@ function Panel({
         <div style={{
             width: '100vw',
             height: '100dvh',
-            scrollSnapAlign: "center",
+            scrollSnapAlign: "start",
+            scrollSnapStop: "always",
             position: 'relative',
             fontFamily: 'system-ui'
         }}>
@@ -90,25 +91,25 @@ function Panel({
                 {url &&
                     <button onClick={() => {
                         window.open(url, '_blank')
-                    }} style={{ display: 'flex' }}>
+                    }} style={{ display: 'flex', backgroundColor: "#fff" }}>
                         <img src={redirectLogo} width={32} height={32} />
                     </button>}
 
                 <button onClick={() => {
                     window.open(`mailto:${EMAIL_ADDRESS}`, '_blank')
-                }} style={{ display: 'flex' }}>
+                }} style={{ display: 'flex', backgroundColor: "#fff" }}>
                     <img src={mailLogo} width={32} height={32} />
                 </button>
 
                 <button onClick={() => {
                     window.open(LINKEDIN_URL, '_blank')
-                }} style={{ display: 'flex' }}>
+                }} style={{ display: 'flex', backgroundColor: "#fff" }}>
                     <img src={linkedinLogo} width={32} height={32} />
                 </button>
 
                 <button onClick={() => {
                     window.open(GITHUB_URL, '_blank')
-                }} style={{ display: 'flex' }}>
+                }} style={{ display: 'flex', backgroundColor: "#fff" }}>
                     <img src={githubLogo} width={32} height={32} />
                 </button>
             </div>

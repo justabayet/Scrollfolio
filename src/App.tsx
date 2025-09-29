@@ -21,6 +21,7 @@ function App() {
   return (
     <div style={{
       scrollSnapType: "both mandatory",
+      scrollSnapStop: "always",
       overflow: "scroll",
       height: "100dvh"
     }}>
@@ -137,7 +138,9 @@ This first implementation lays the foundation by implementing the core principle
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
-          fontFamily: 'Lexend Deca'
+          fontFamily: 'Lexend Deca',
+          background: '#DDD',
+          color: "#333"
         }}>
           <div>
             <h1>Resume</h1>
