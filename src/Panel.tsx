@@ -53,7 +53,7 @@ function Panel({
                     padding: '1em',
                     background: collapsedDescription
                         ? 'linear-gradient(transparent, #22222215, 2em, #22222282, 100%, #222222ff)'
-                        : 'linear-gradient(transparent, #2222222f, 4em, #222222ff)',
+                        : 'linear-gradient(transparent, #2222222f, 1em, #222222b1)',
                     color: '#fff',
                     maxHeight: collapsedDescription ? '4em' : '10em',
                     overflowY: collapsedDescription ? 'hidden' : 'auto',
@@ -62,7 +62,7 @@ function Panel({
                     <div><strong>{title}</strong></div>}
                 {description != null &&
                     <div
-                        style={{ maxWidth: '70vw', cursor: 'pointer' }}
+                        style={{ maxWidth: '70vw', cursor: 'pointer', whiteSpace: 'pre-line' }}
                     >
                         {description}
                     </div>}
