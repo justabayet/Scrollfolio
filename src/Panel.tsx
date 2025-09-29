@@ -1,7 +1,9 @@
-import { useState, type PropsWithChildren, type RefObject } from 'react'
+import { useRef, useState, type PropsWithChildren, type RefObject } from 'react'
 import linkedinLogo from './assets/linkedin_no_bg.webp'
 import githubLogo from './assets/github_no_bg.webp'
 import redirectLogo from './assets/redirect_no_bg.webp'
+import mailLogo from './assets/mail.png'
+import { EMAIL_ADDRESS, GITHUB_URL, LINKEDIN_URL } from './const'
 
 interface PanelProps extends PropsWithChildren {
     topAnchorRef?: RefObject<HTMLDivElement | null>
@@ -16,39 +18,53 @@ function Panel({
     title,
     description,
     children,
-    url }: PanelProps) {
-
+    url
+}: PanelProps) {
+    const descriptionContainerRef = useRef<HTMLDivElement>(null)
     const [collapsedDescription, setCollapsedDescription] = useState(true)
+
+    const toggleCollapse = () => {
+        if (!collapsedDescription && descriptionContainerRef.current != null) {
+            descriptionContainerRef.current.scrollTo({ top: 0 })
+        }
+        setCollapsedDescription(!collapsedDescription)
+    }
+
     return (
         <div style={{
             width: '100vw',
-            height: '100vh',
+            height: '100dvh',
             scrollSnapAlign: "center",
-            position: 'relative'
+            position: 'relative',
+            fontFamily: 'system-ui'
         }}>
             {children}
             {/* Description */}
-            <div style={{
-                position: 'absolute',
-                bottom: 0,
-                left: 0,
-                zIndex: 10,
-                width: '100vw',
-                textAlign: 'left',
-                padding: '1em',
-                background: collapsedDescription
-                    ? 'linear-gradient(transparent, #22222215, 2em, #22222282, 100%, #222222ff)'
-                    : 'linear-gradient(transparent, #2222222f, 4em, #222222ff)',
-                color: '#fff',
-                maxHeight: collapsedDescription ? '4em' : '10em',
-                overflowY: 'auto'
-            }}>
+            <div
+                onClick={toggleCollapse}
+                ref={descriptionContainerRef}
+                style={{
+                    position: 'absolute',
+                    bottom: 0,
+                    left: 0,
+                    zIndex: 10,
+                    opacity: (title == null && description == null) ? 0 : 1,
+                    width: 'calc(100vw - 2em)',
+                    textAlign: 'left',
+                    padding: '1em',
+                    background: collapsedDescription
+                        ? 'linear-gradient(transparent, #22222215, 2em, #22222282, 100%, #222222ff)'
+                        : 'linear-gradient(transparent, #2222222f, 4em, #222222ff)',
+                    color: '#fff',
+                    maxHeight: collapsedDescription ? '4em' : '10em',
+                    overflowY: collapsedDescription ? 'hidden' : 'auto',
+                }}>
                 {title != null &&
                     <div><strong>{title}</strong></div>}
                 {description != null &&
-                    <div style={{ maxWidth: '70vw', cursor: 'pointer' }} onClick={() => {
-                        setCollapsedDescription(v => !v)
-                    }}>
+                    <div
+                        style={{ maxWidth: '70vw', cursor: 'pointer' }}
+                    >
                         {description}
                     </div>}
             </div>
@@ -78,13 +94,21 @@ function Panel({
                     }} style={{ display: 'flex' }}>
                         <img src={redirectLogo} width={32} height={32} />
                     </button>}
+
                 <button onClick={() => {
-                    window.open('https://www.linkedin.com/in/anthony-bayet', '_blank')
+                    window.open(`mailto:${EMAIL_ADDRESS}`, '_blank')
+                }} style={{ display: 'flex' }}>
+                    <img src={mailLogo} width={32} height={32} />
+                </button>
+
+                <button onClick={() => {
+                    window.open(LINKEDIN_URL, '_blank')
                 }} style={{ display: 'flex' }}>
                     <img src={linkedinLogo} width={32} height={32} />
                 </button>
+
                 <button onClick={() => {
-                    window.open('https://github.com/justabayet/', '_blank')
+                    window.open(GITHUB_URL, '_blank')
                 }} style={{ display: 'flex' }}>
                     <img src={githubLogo} width={32} height={32} />
                 </button>

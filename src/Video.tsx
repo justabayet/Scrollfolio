@@ -29,6 +29,7 @@ function Video({ src, blur = 15 }: VideoProps) {
                 autoPlay
                 muted
                 loop
+                playsInline
                 style={{
                     height: '100%',
                     width: '100%',
@@ -56,6 +57,7 @@ function Video({ src, blur = 15 }: VideoProps) {
                 autoPlay
                 muted
                 loop
+                playsInline
                 style={{
                     height: `calc(100% + ${4 * blur}px)`,
                     width: `calc(100% + ${4 * blur}px)`,

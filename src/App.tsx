@@ -7,20 +7,65 @@ import arveyeStoele from './assets/videos/arveye-stoele.mp4'
 import arveyeThread from './assets/videos/arveye-thread.mp4'
 import arveyeWallpaper from './assets/videos/arveye-wallpaper.mp4'
 import shaderRiver from './assets/videos/shader-river.mp4'
+import "@fontsource/lexend-deca/100.css"
+import arrowDown from './assets/arrow-down.png'
 
 import Video from './Video';
+import { EMAIL_ADDRESS } from './const';
 
 function App() {
-  const topAnchorRef = useRef<HTMLDivElement>(null);
-  const resumeAnchorRef = useRef<HTMLDivElement>(null);
+  const topAnchorRef = useRef<HTMLDivElement>(null)
+  const resumeAnchorRef = useRef<HTMLDivElement>(null)
+  const firstElementRef = useRef<HTMLDivElement>(null)
 
   return (
     <div style={{
       scrollSnapType: "both mandatory",
       overflow: "scroll",
-      height: "100vh"
+      height: "100dvh"
     }}>
       <div ref={topAnchorRef}></div>
+      <Panel isResume topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
+        <div style={{
+          width: '100%',
+          height: '100%',
+          background: 'linear-gradient( #0f293eff, #180406ff )',
+          color: '#ffffffd4',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontFamily: 'Lexend Deca'
+        }}>
+          <div>
+            <h1>Anthony Bayet</h1>
+            <h2>Creative Developer</h2>
+            <p>Belgium 🇧🇪 {EMAIL_ADDRESS}</p>
+          </div>
+          <div style={{ height: '30%' }}></div>
+        </div>
+
+        <div
+          onClick={() => {
+            if (firstElementRef.current == null) return
+            firstElementRef.current.scrollIntoView({ behavior: 'smooth' })
+          }}
+          style={{
+            backgroundColor: '#ffffff8f',
+            borderRadius: '50%',
+            position: 'absolute',
+            bottom: '16px',
+            left: '50%',
+            width: '48px',
+            height: '48px',
+            transform: 'translate(-50%)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}>
+          <img style={{ paddingTop: 3 }} src={arrowDown} width={28} height={28} />
+        </div>
+      </Panel>
       <Panel title='Arveye - Destinêye' url='https://proximity.justabayet.com/?view=thread_three'
         description={`The red thread of fate is an invisible red cord connecting you to the person you are destined to be with, regardless of place, time, or context. The thread may stretch and bend but never break. 
 
@@ -32,6 +77,7 @@ I personally don’t believe in fate, but I do believe in relationships built ou
 
 This project has been built on top of a previous iteration, Arveye: Foundation, providing the toolbox to connect users, leveraging the internal compass of modern devices, and ultimately getting the relative position between users. Once again displaying the power of software-based art sharing a common foundation, with little to no tweaking necessary, and allowing to create completely different artworks.`}
         topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
+        <div ref={firstElementRef} />
         <Video src={arveyeThread} />
       </Panel>
       <Panel title='Arveye - Aweye' url='https://proximity.justabayet.com/?view=kikk'
@@ -47,6 +93,31 @@ PS: About this specific representation, it is a Voronoi diagram, which is used t
         topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
         <Video src={arveyeKikk} />
       </Panel>
+
+      <Panel title='Arveye - Solrece'
+        topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}
+        description={`We are all solar systems of our own. Each of us is a star, casting our personal light on the people we are connected to. At the same time, every person we know reflects their own light back, shaping who we are. These symbiotic exchanges of influence are represented here as a solar system: you at the center, and your loved ones as the planets that always remain part of your orbit.
+
+Built on Arveye: Foundation, Arveye: Sistinme is the first representation exploring how regardless of distance, the people we know continue to influence our steps and are influenced by us. The connection to the real world geolocation of people helps keep a more physical sense of connection with those who matter most.
+
+No Matter Where`}>
+        <Video src={arveyeStoele} />
+      </Panel>
+      <Panel topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef} description='Just shaders. No AI. No edits.'>
+        <Video src={shaderRiver} />
+      </Panel>
+      <Panel title='Arveye - Wallpaper'
+        topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}
+        description={`A painting on your wall doesn't ask for your attention, it simply exists there, catching your eye during morning coffee or late-night thoughts. 
+
+Most digital art forms are intention craving, they need users to deliberately make decisions to experience the artwork. Large digital art exhibitions create breathtaking moments but demand you to go there and possibly buy the ticket. Web art breaks accessibility barriers, yet still requires intention. You must choose to click that link, scan that code.
+
+Arveye: Wallpaper changes this entirely. By becoming your phone wallpaper, it appears each time you unlock your phone, no conscious decision needed. Like stumbling upon street art during a casual walk, the artwork encounters you naturally as you navigate your day.
+
+Technical notes: Due to current iOS limitations, highly dynamic wallpapers like this are only available on Android platforms. The wallpaper optimizes battery usage by entering sleep mode when not actively displayed. Sensor data is cached locally to maintain smooth performance and ensure the visual remains responsive even during brief sensor delays.
+`}>
+        <Video src={arveyeWallpaper} />
+      </Panel>
       <Panel title='Arveye - Foundation'
         description={`Many people have to live far from their loved ones, isolated. Sometimes to chase a dream, to study, to escape or to discover the world. But whatever the reason, distance often creates the perfect conditions for loneliness to grow and quietly take over.
 
@@ -58,32 +129,22 @@ This first implementation lays the foundation by implementing the core principle
         topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
         <Video src={arveyeFoundation} />
       </Panel>
-      <Panel topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}
-        title='Arveye - Solrece'
-        description={`We are all solar systems of our own. Each of us is a star, casting our personal light on the people we are connected to. At the same time, every person we know reflects their own light back, shaping who we are. These symbiotic exchanges of influence are represented here as a solar system: you at the center, and your loved ones as the planets that always remain part of your orbit.
-
-Built on Arveye: Foundation, Arveye: Sistinme is the first representation exploring how regardless of distance, the people we know continue to influence our steps and are influenced by us. The connection to the real world geolocation of people helps keep a more physical sense of connection with those who matter most.
-
-No Matter Where`}>
-        <Video src={arveyeStoele} />
-      </Panel>
-      <Panel topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}
-        title='Arveye - Wallpaper'
-        description={`A painting on your wall doesn't ask for your attention, it simply exists there, catching your eye during morning coffee or late-night thoughts. 
-
-Most digital art forms are intention craving, they need users to deliberately make decisions to experience the artwork. Large digital art exhibitions create breathtaking moments but demand you to go there and possibly buy the ticket. Web art breaks accessibility barriers, yet still requires intention. You must choose to click that link, scan that code.
-
-Arveye: Wallpaper changes this entirely. By becoming your phone wallpaper, it appears each time you unlock your phone, no conscious decision needed. Like stumbling upon street art during a casual walk, the artwork encounters you naturally as you navigate your day.
-
-Technical notes: Due to current iOS limitations, highly dynamic wallpapers like this are only available on Android platforms. The wallpaper optimizes battery usage by entering sleep mode when not actively displayed. Sensor data is cached locally to maintain smooth performance and ensure the visual remains responsive even during brief sensor delays.
-`}>
-        <Video src={arveyeWallpaper} />
-      </Panel>
-      <Panel topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef} description='Just shaders. No AI. No edits.'>
-        <Video src={shaderRiver} />
-      </Panel>
       <Panel isResume topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
         <div ref={resumeAnchorRef}></div>
+        <div style={{
+          width: '100%',
+          height: '100%',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          fontFamily: 'Lexend Deca'
+        }}>
+          <div>
+            <h1>Resume</h1>
+            <h2>Work in Progress</h2>
+          </div>
+        </div>
       </Panel>
     </div>
   )
