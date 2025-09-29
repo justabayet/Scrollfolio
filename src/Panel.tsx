@@ -8,7 +8,6 @@ import { EMAIL_ADDRESS, GITHUB_URL, LINKEDIN_URL } from './const'
 interface PanelProps extends PropsWithChildren {
     topAnchorRef?: RefObject<HTMLDivElement | null>
     resumeAnchorRef?: RefObject<HTMLDivElement | null>
-    isResume?: boolean
     description?: string
     title?: string
     url?: string

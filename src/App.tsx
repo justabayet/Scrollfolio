@@ -25,7 +25,7 @@ function App() {
       height: "100dvh"
     }}>
       <div ref={topAnchorRef}></div>
-      <Panel isResume topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
+      <Panel topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
         <div style={{
           width: '100%',
           height: '100%',
@@ -129,7 +129,7 @@ This first implementation lays the foundation by implementing the core principle
         topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
         <Video src={arveyeFoundation} />
       </Panel>
-      <Panel isResume topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
+      <Panel topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
         <div ref={resumeAnchorRef}></div>
         <div style={{
           width: '100%',
