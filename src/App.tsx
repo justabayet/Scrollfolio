@@ -93,7 +93,6 @@ PS: About this specific representation, it is a Voronoi diagram, which is used t
         topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
         <Video src={arveyeKikk} />
       </Panel>
-
       <Panel title='Arveye - Solrece'
         topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}
         description={`We are all solar systems of our own. Each of us is a star, casting our personal light on the people we are connected to. At the same time, every person we know reflects their own light back, shaping who we are. These symbiotic exchanges of influence are represented here as a solar system: you at the center, and your loved ones as the planets that always remain part of your orbit.
