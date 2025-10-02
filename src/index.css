@@ -29,7 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100dvh;
-  background: linear-gradient(#0f293eff, #180406ff);
+  background: linear-gradient(#0f293eff, rgb(13, 13, 13));
   overflow: hidden;
 }
 

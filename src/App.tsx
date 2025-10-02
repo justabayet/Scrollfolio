@@ -30,7 +30,7 @@ function App() {
         <div style={{
           width: '100%',
           height: '100%',
-          background: 'linear-gradient( #0f293eff, #180406ff )',
+          background: 'linear-gradient( #0f293eff, #141414ff )',
           color: '#ffffffd4',
           display: 'flex',
           flexDirection: 'column',
