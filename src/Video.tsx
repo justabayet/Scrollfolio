@@ -52,6 +52,7 @@ function Video({ src, blur = 15, srcBackground }: VideoProps) {
                 ref={frontVideoRef}
                 muted
                 loop
+                autoPlay
                 playsInline
                 onLoadedData={handleLoadedData}
                 poster={srcBackground}
