@@ -2,6 +2,7 @@ import { useRef, useState } from "react"
 
 interface VideoProps {
     src: string
+    srcBackground: string
     blur?: number
 }
 
@@ -12,10 +13,8 @@ const keyframes = `
 }
 `;
 
-function Video({ src, blur = 15 }: VideoProps) {
+function Video({ src, blur = 15, srcBackground }: VideoProps) {
     const frontVideoRef = useRef<HTMLVideoElement>(null)
-    let posterSrc = src.slice(0, -3) + 'webp'
-    posterSrc = posterSrc.replace("/videos/", "/thumbnails/")
 
     const [isVideoLoaded, setIsVideoLoaded] = useState(false)
 
@@ -55,7 +54,7 @@ function Video({ src, blur = 15 }: VideoProps) {
                 loop
                 playsInline
                 onLoadedData={handleLoadedData}
-                poster={posterSrc}
+                poster={srcBackground}
                 style={{
                     height: '100%',
                     width: '100%',
@@ -82,7 +81,7 @@ function Video({ src, blur = 15 }: VideoProps) {
 
             {/* Background */}
             <img
-                src={posterSrc}
+                src={srcBackground}
                 style={{
                     height: `calc(100% + ${4 * blur}px)`,
                     width: `calc(100% + ${4 * blur}px)`,

@@ -7,6 +7,14 @@ import arveyeStoele from './assets/videos/arveye-stoele.mp4'
 import arveyeThread from './assets/videos/arveye-thread.mp4'
 import arveyeWallpaper from './assets/videos/arveye-wallpaper.mp4'
 import shaderRiver from './assets/videos/shader-river.mp4'
+
+import arveyeKikkBackground from './assets/thumbnails/arveye-kikk.webp'
+import arveyeFoundationBackground from './assets/thumbnails/arveye-foundation.webp'
+import arveyeStoeleBackground from './assets/thumbnails/arveye-stoele.webp'
+import arveyeThreadBackground from './assets/thumbnails/arveye-thread.webp'
+import arveyeWallpaperBackground from './assets/thumbnails/arveye-wallpaper.webp'
+import shaderRiverBackground from './assets/thumbnails/shader-river.webp'
+
 import "@fontsource/lexend-deca/100.css"
 import arrowDown from './assets/arrow-down.png'
 
@@ -79,7 +87,7 @@ I personally don’t believe in fate, but I do believe in relationships built ou
 This project has been built on top of a previous iteration, Arveye: Foundation, providing the toolbox to connect users, leveraging the internal compass of modern devices, and ultimately getting the relative position between users. Once again displaying the power of software-based art sharing a common foundation, with little to no tweaking necessary, and allowing to create completely different artworks.`}
         topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
         <div ref={firstElementRef} />
-        <Video src={arveyeThread} />
+        <Video src={arveyeThread} srcBackground={arveyeThreadBackground} />
       </Panel>
       <Panel title='Arveye - Aweye' url='https://proximity.justabayet.com/?view=kikk'
         description={`Exploring new places is fantastic but can be overwhelming. With so much to see and so little guidance, it is easy to worry about missing something.
@@ -92,7 +100,7 @@ And this is only the beginning. The project still has many possibilities for new
 
 PS: About this specific representation, it is a Voronoi diagram, which is used to represent intricate biological structures such as cells. It reflects the notion that every human creation and celebration, be it festivities, fascinating architectures, or cities, they all are like building blocks of life.`}
         topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
-        <Video src={arveyeKikk} />
+        <Video src={arveyeKikk} srcBackground={arveyeKikkBackground} />
       </Panel>
       <Panel title='Arveye - Solrece'
         topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}
@@ -101,10 +109,10 @@ PS: About this specific representation, it is a Voronoi diagram, which is used t
 Built on Arveye: Foundation, Arveye: Sistinme is the first representation exploring how regardless of distance, the people we know continue to influence our steps and are influenced by us. The connection to the real world geolocation of people helps keep a more physical sense of connection with those who matter most.
 
 No Matter Where`}>
-        <Video src={arveyeStoele} />
+        <Video src={arveyeStoele} srcBackground={arveyeStoeleBackground} />
       </Panel>
       <Panel topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef} description='Just shaders. No AI. No edits.'>
-        <Video src={shaderRiver} />
+        <Video src={shaderRiver} srcBackground={shaderRiverBackground} />
       </Panel>
       <Panel title='Arveye - Wallpaper'
         topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}
@@ -116,7 +124,7 @@ Arveye: Wallpaper changes this entirely. By becoming your phone wallpaper, it ap
 
 Technical notes: Due to current iOS limitations, highly dynamic wallpapers like this are only available on Android platforms. The wallpaper optimizes battery usage by entering sleep mode when not actively displayed. Sensor data is cached locally to maintain smooth performance and ensure the visual remains responsive even during brief sensor delays.
 `}>
-        <Video src={arveyeWallpaper} />
+        <Video src={arveyeWallpaper} srcBackground={arveyeWallpaperBackground} />
       </Panel>
       <Panel title='Arveye - Foundation'
         description={`Many people have to live far from their loved ones, isolated. Sometimes to chase a dream, to study, to escape or to discover the world. But whatever the reason, distance often creates the perfect conditions for loneliness to grow and quietly take over.
@@ -127,7 +135,7 @@ It lets two people connect through a one-time sharing link. Once connected, it s
 
 This first implementation lays the foundation by implementing the core principles: connecting people, sharing geolocation, getting phone absolute direction. Future development will build on this foundation to explore various ways of representing these connections. Finding different, simple yet meaningful ways to make distant people feel present again.`}
         topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
-        <Video src={arveyeFoundation} />
+        <Video src={arveyeFoundation} srcBackground={arveyeFoundationBackground} />
       </Panel>
       <Panel topAnchorRef={topAnchorRef} resumeAnchorRef={resumeAnchorRef}>
         <div ref={resumeAnchorRef}></div>
