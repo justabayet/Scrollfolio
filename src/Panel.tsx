@@ -86,15 +86,6 @@ function Panel({
                 padding: '1em',
                 gap: 12
             }}>
-
-                {/* <button onClick={() => {
-                    if (topAnchorRef == null) return
-                    topAnchorRef.current?.scrollIntoView({
-                        behavior: 'smooth'
-                    })
-                }} style={{ display: 'flex' }}>
-                    <img src={arrowUp} width={32} height={32} />
-                </button> */}
                 {url && <ButtonUI src={redirectLogo} url={url} />}
 
                 <ButtonUI src={mailLogo} url={`mailto:${EMAIL_ADDRESS}`} />
