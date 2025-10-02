@@ -98,11 +98,11 @@ function Panel({
                 padding: '1em',
                 gap: 12
             }}>
-                {url && <ButtonUI src={redirectLogo} url={url} />}
+                {url && <ButtonUI src={redirectLogo} url={url} description='Open project?' />}
 
-                <ButtonUI src={mailLogo} url={`mailto:${EMAIL_ADDRESS}`} />
-                <ButtonUI src={linkedinLogo} url={LINKEDIN_URL} />
-                <ButtonUI src={githubSVGLogo} url={GITHUB_URL} />
+                <ButtonUI src={mailLogo} url={`mailto:${EMAIL_ADDRESS}`} description='Open email application?' />
+                <ButtonUI src={linkedinLogo} url={LINKEDIN_URL} description='Open LinkedIn?' />
+                <ButtonUI src={githubSVGLogo} url={GITHUB_URL} description='Open Github?' />
             </div>
         </div>
     )
