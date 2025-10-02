@@ -76,7 +76,9 @@ function App() {
             transform: 'translate(-50%)',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            zIndex: 11,
+            cursor: 'pointer'
           }}>
 
           <style>{keyframes}</style>
