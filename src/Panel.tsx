@@ -23,10 +23,11 @@ function Panel({
     const descriptionContainerRef = useRef<HTMLDivElement>(null)
     const [collapsedDescription, setCollapsedDescription] = useState(true)
 
-    const toggleCollapse = () => {
+    const toggleCollapse = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
         if (!collapsedDescription && descriptionContainerRef.current != null) {
             descriptionContainerRef.current.scrollTo({ top: 0 })
         }
+        event.stopPropagation()
         setCollapsedDescription(!collapsedDescription)
     }
 
@@ -39,6 +40,9 @@ function Panel({
             position: 'relative',
             fontFamily: 'system-ui',
             color: 'var(--color-accent)'
+        }} onClick={() => {
+            descriptionContainerRef.current?.scrollTo({ top: 0 })
+            setCollapsedDescription(true)
         }}>
             {children}
             {/* Description */}
