@@ -1,9 +1,10 @@
 import { useRef, useState, type PropsWithChildren, type RefObject } from 'react'
-import linkedinLogo from './assets/linkedin_no_bg.webp'
-import githubLogo from './assets/github_no_bg.webp'
-import redirectLogo from './assets/redirect_no_bg.webp'
-import mailLogo from './assets/mail.png'
+import linkedinLogo from './assets/linkedin-svg.svg'
+import githubSVGLogo from './assets/github-mark.svg'
+import redirectLogo from './assets/external-link-svg.svg'
+import mailLogo from './assets/email-svg.svg'
 import { EMAIL_ADDRESS, GITHUB_URL, LINKEDIN_URL } from './const'
+import ButtonUI from './ButtonUI'
 
 interface PanelProps extends PropsWithChildren {
     topAnchorRef?: RefObject<HTMLDivElement | null>
@@ -36,7 +37,8 @@ function Panel({
             scrollSnapAlign: "start",
             scrollSnapStop: "always",
             position: 'relative',
-            fontFamily: 'system-ui'
+            fontFamily: 'system-ui',
+            color: 'var(--color-accent)'
         }}>
             {children}
             {/* Description */}
@@ -55,7 +57,7 @@ function Panel({
                     background: collapsedDescription
                         ? 'linear-gradient(transparent, #22222215, 2em, #22222282, 100%, #222222ff)'
                         : 'linear-gradient(transparent, #2222222f, 1em, #222222b1)',
-                    color: '#fff',
+
                     maxHeight: collapsedDescription ? '4em' : '10em',
                     overflowY: collapsedDescription ? 'hidden' : 'auto',
                 }}>
@@ -63,7 +65,12 @@ function Panel({
                     <div><strong>{title}</strong></div>}
                 {description != null &&
                     <div
-                        style={{ maxWidth: '70vw', cursor: 'pointer', whiteSpace: 'pre-line' }}
+                        style={{
+                            maxWidth: '70vw',
+                            cursor: 'pointer',
+                            whiteSpace: 'pre-line',
+                            color: 'var(--color-accent)'
+                        }}
                     >
                         {description}
                     </div>}
@@ -88,30 +95,11 @@ function Panel({
                 }} style={{ display: 'flex' }}>
                     <img src={arrowUp} width={32} height={32} />
                 </button> */}
-                {url &&
-                    <button onClick={() => {
-                        window.open(url, '_blank')
-                    }} style={{ display: 'flex', backgroundColor: "#fff" }}>
-                        <img src={redirectLogo} width={32} height={32} />
-                    </button>}
+                {url && <ButtonUI src={redirectLogo} url={url} />}
 
-                <button onClick={() => {
-                    window.open(`mailto:${EMAIL_ADDRESS}`, '_blank')
-                }} style={{ display: 'flex', backgroundColor: "#fff" }}>
-                    <img src={mailLogo} width={32} height={32} />
-                </button>
-
-                <button onClick={() => {
-                    window.open(LINKEDIN_URL, '_blank')
-                }} style={{ display: 'flex', backgroundColor: "#fff" }}>
-                    <img src={linkedinLogo} width={32} height={32} />
-                </button>
-
-                <button onClick={() => {
-                    window.open(GITHUB_URL, '_blank')
-                }} style={{ display: 'flex', backgroundColor: "#fff" }}>
-                    <img src={githubLogo} width={32} height={32} />
-                </button>
+                <ButtonUI src={mailLogo} url={`mailto:${EMAIL_ADDRESS}`} />
+                <ButtonUI src={linkedinLogo} url={LINKEDIN_URL} />
+                <ButtonUI src={githubSVGLogo} url={GITHUB_URL} />
             </div>
         </div>
     )

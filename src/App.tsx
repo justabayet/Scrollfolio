@@ -16,10 +16,17 @@ import arveyeWallpaperBackground from './assets/thumbnails/arveye-wallpaper.webp
 import shaderRiverBackground from './assets/thumbnails/shader-river.webp'
 
 import "@fontsource/lexend-deca/100.css"
-import arrowDown from './assets/arrow-down.png'
+import arrowDown from './assets/down-chevron-svg.svg'
 
 import Video from './Video';
 import { EMAIL_ADDRESS } from './const';
+
+const keyframes = `
+@keyframes bounce {
+    0% { padding-top: 12px; }
+    50% { padding-top: 0px; }
+    100% { padding-top: 12px; }
+}`;
 
 function App() {
   const topAnchorRef = useRef<HTMLDivElement>(null)
@@ -39,7 +46,7 @@ function App() {
           width: '100%',
           height: '100%',
           background: 'linear-gradient( #0f293eff, #141414ff )',
-          color: '#ffffffd4',
+          color: 'var(--color-accent)',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
@@ -60,7 +67,6 @@ function App() {
             firstElementRef.current.scrollIntoView({ behavior: 'smooth' })
           }}
           style={{
-            backgroundColor: '#ffffff8f',
             borderRadius: '50%',
             position: 'absolute',
             bottom: '16px',
@@ -72,7 +78,12 @@ function App() {
             justifyContent: 'center',
             alignItems: 'center'
           }}>
-          <img style={{ paddingTop: 3 }} src={arrowDown} width={28} height={28} />
+
+          <style>{keyframes}</style>
+          <img style={{
+            paddingTop: 3,
+            animation: '1.2s cubic-bezier(0.35, 0.01, 0.67, 0.98) 0s infinite normal none running bounce',
+          }} src={arrowDown} width={56} height={56} />
         </div>
       </Panel>
       <Panel title='Arveye - Destinêye' url='https://proximity.justabayet.com/?view=thread_three'
@@ -147,8 +158,8 @@ This first implementation lays the foundation by implementing the core principle
           alignItems: 'center',
           justifyContent: 'center',
           fontFamily: 'Lexend Deca',
-          background: '#DDD',
-          color: "#333"
+          background: 'var(--color-accent)',
+          color: 'var(--color-primary)',
         }}>
           <div>
             <h1>Resume</h1>

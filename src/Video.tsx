@@ -10,8 +10,7 @@ const keyframes = `
 @keyframes spin {
     0% { transform:  translate(-50%, -50%) rotate(0deg);}
     100% { transform:  translate(-50%, -50%) rotate(360deg);}
-}
-`;
+}`;
 
 function Video({ src, blur = 15, srcBackground }: VideoProps) {
     const frontVideoRef = useRef<HTMLVideoElement>(null)
