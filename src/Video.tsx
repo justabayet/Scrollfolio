@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useRef } from "react"
 
 interface VideoProps {
     src: string
@@ -7,29 +7,22 @@ interface VideoProps {
 
 function Video({ src, blur = 15 }: VideoProps) {
     const frontVideoRef = useRef<HTMLVideoElement>(null)
-    const backVideoRef = useRef<HTMLVideoElement>(null)
-    useEffect(() => {
-        if (frontVideoRef.current == null || backVideoRef.current == null) return
+    let posterSrc = src.slice(0, -3) + 'webp'
+    posterSrc = posterSrc.replace("/videos/", "/thumbnails/")
 
-        frontVideoRef.current.addEventListener('timeupdate', () => {
-            if (frontVideoRef.current == null || backVideoRef.current == null) return
-            // Adjust back video's currentTime if it drifts significantly
-            if (Math.abs(frontVideoRef.current.currentTime - backVideoRef.current.currentTime) > 0.1) {
-                backVideoRef.current.currentTime = frontVideoRef.current.currentTime;
-            }
-        });
-    })
     return (
         <div style={{
             position: 'relative', height: '100%', width: '100%',
             overflow: 'hidden'
         }}>
+            {/* Front Video */}
             <video
                 ref={frontVideoRef}
                 autoPlay
                 muted
                 loop
                 playsInline
+                poster={posterSrc}
                 style={{
                     height: '100%',
                     width: '100%',
@@ -41,6 +34,8 @@ function Video({ src, blur = 15 }: VideoProps) {
                 }} >
                 <source src={src} type="video/mp4" />
             </video>
+
+            {/* Shadow Panel */}
             <div
                 style={{
                     height: '100%',
@@ -52,12 +47,9 @@ function Video({ src, blur = 15 }: VideoProps) {
                     background: '#33333342'
                 }} />
 
-            <video
-                ref={backVideoRef}
-                autoPlay
-                muted
-                loop
-                playsInline
+            {/* Background */}
+            <img
+                src={posterSrc}
                 style={{
                     height: `calc(100% + ${4 * blur}px)`,
                     width: `calc(100% + ${4 * blur}px)`,
@@ -66,9 +58,9 @@ function Video({ src, blur = 15 }: VideoProps) {
                     position: 'absolute',
                     top: `-${2 * blur}px`,
                     left: `-${2 * blur}px`,
-                }} >
-                <source src={src} type="video/mp4" />
-            </video>
+                }}>
+
+            </img>
         </div>
     )
 }
