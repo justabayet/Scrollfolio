@@ -1,4 +1,4 @@
-import { useRef, useState, type PropsWithChildren, type RefObject } from 'react'
+import { useLayoutEffect, useRef, useState, type PropsWithChildren, type RefObject } from 'react'
 import linkedinLogo from './assets/linkedin-svg.svg'
 import githubSVGLogo from './assets/github-mark.svg'
 import redirectLogo from './assets/external-link-svg.svg'
@@ -22,14 +22,22 @@ function Panel({
 }: PanelProps) {
     const descriptionContainerRef = useRef<HTMLDivElement>(null)
     const [collapsedDescription, setCollapsedDescription] = useState(true)
+    const [isOverflow, setIsOverflow] = useState(true)
 
     const toggleCollapse = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+        if (!isOverflow) return
         if (!collapsedDescription && descriptionContainerRef.current != null) {
             descriptionContainerRef.current.scrollTo({ top: 0 })
         }
         event.stopPropagation()
         setCollapsedDescription(!collapsedDescription)
     }
+
+    useLayoutEffect(() => {
+        if (descriptionContainerRef.current == null) return
+
+        setIsOverflow(descriptionContainerRef.current.scrollHeight > descriptionContainerRef.current.offsetHeight)
+    }, [title])
 
     return (
         <div style={{
@@ -66,7 +74,7 @@ function Panel({
                     overflowY: collapsedDescription ? 'hidden' : 'auto',
                 }}>
                 {title != null &&
-                    <div><strong>{title}</strong></div>}
+                    <div>{collapsedDescription ? '▼' : '▲'} <strong>{title}</strong></div>}
                 {description != null &&
                     <div
                         style={{
