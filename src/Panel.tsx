@@ -59,8 +59,8 @@ function Panel({
                     textAlign: 'left',
                     padding: '1em',
                     background: collapsedDescription
-                        ? 'linear-gradient(transparent, #22222215, 2em, #22222282, 100%, #222222ff)'
-                        : 'linear-gradient(transparent, #2222222f, 1em, #222222b1)',
+                        ? 'linear-gradient(transparent, #050e1515, 2em, #050e1582, 100%, #050e15ff)'
+                        : 'linear-gradient(transparent, #050e1566, 1em, #050e15ff)',
 
                     maxHeight: collapsedDescription ? '4em' : '10em',
                     overflowY: collapsedDescription ? 'hidden' : 'auto',
