@@ -1,4 +1,4 @@
-import { useLayoutEffect, useRef, useState, type PropsWithChildren, type RefObject } from 'react'
+import { useLayoutEffect, useRef, useState, type PropsWithChildren } from 'react'
 import linkedinLogo from './assets/linkedin-svg.svg'
 import githubSVGLogo from './assets/github-mark.svg'
 import redirectLogo from './assets/external-link-svg.svg'
@@ -7,8 +7,6 @@ import { EMAIL_ADDRESS, GITHUB_URL, LINKEDIN_URL } from './const'
 import ButtonUI from './ButtonUI'
 
 interface PanelProps extends PropsWithChildren {
-    topAnchorRef?: RefObject<HTMLDivElement | null>
-    resumeAnchorRef?: RefObject<HTMLDivElement | null>
     description?: string
     title?: string
     url?: string
