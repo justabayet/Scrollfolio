@@ -19,6 +19,7 @@ import "@fontsource/lexend-deca/100.css"
 
 import Video from './Video'
 import HomePage from './HomePage'
+import Resume from './Resume'
 
 function App() {
   const firstElementRef = useRef<HTMLDivElement>(null)
@@ -96,22 +97,7 @@ This first implementation lays the foundation by implementing the core principle
         <Video src={arveyeFoundation} srcBackground={arveyeFoundationBackground} />
       </Panel>
       <Panel>
-        <div style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontFamily: 'Lexend Deca',
-          background: 'var(--color-accent)',
-          color: 'var(--color-primary)',
-        }}>
-          <div>
-            <h1>Resume</h1>
-            <h2>Work in Progress</h2>
-          </div>
-        </div>
+        <Resume />
       </Panel>
     </div>
   )
