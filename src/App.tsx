@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef } from 'react'
 import './App.css'
 import Panel from './Panel'
 import arveyeKikk from './assets/videos/arveye-kikk.mp4'
@@ -16,17 +16,9 @@ import arveyeWallpaperBackground from './assets/thumbnails/arveye-wallpaper.webp
 import shaderRiverBackground from './assets/thumbnails/shader-river.webp'
 
 import "@fontsource/lexend-deca/100.css"
-import arrowDown from './assets/down-chevron-svg.svg'
 
-import Video from './Video';
-import { EMAIL_ADDRESS } from './const';
-
-const keyframes = `
-@keyframes bounce {
-    0% { padding-top: 12px; }
-    50% { padding-top: 0px; }
-    100% { padding-top: 12px; }
-}`;
+import Video from './Video'
+import HomePage from './HomePage'
 
 function App() {
   const firstElementRef = useRef<HTMLDivElement>(null)
@@ -39,51 +31,7 @@ function App() {
       height: "100dvh"
     }}>
       <Panel>
-        <div style={{
-          width: '100%',
-          height: '100%',
-          background: 'linear-gradient( #0f293eff, #141414ff )',
-          color: 'var(--color-accent)',
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-          justifyContent: 'center',
-          fontFamily: 'Lexend Deca'
-        }}>
-          <div>
-            <h1>Anthony Bayet</h1>
-            <h2>Creative Developer</h2>
-            <p>Belgium 🇧🇪 {EMAIL_ADDRESS}</p>
-          </div>
-          <div style={{ height: '30%' }}></div>
-        </div>
-
-        <div
-          onClick={() => {
-            if (firstElementRef.current == null) return
-            firstElementRef.current.scrollIntoView({ behavior: 'smooth' })
-          }}
-          style={{
-            borderRadius: '50%',
-            position: 'absolute',
-            bottom: '16px',
-            left: '50%',
-            width: '48px',
-            height: '48px',
-            transform: 'translate(-50%)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 11,
-            cursor: 'pointer'
-          }}>
-
-          <style>{keyframes}</style>
-          <img style={{
-            paddingTop: 3,
-            animation: '1.2s cubic-bezier(0.35, 0.01, 0.67, 0.98) 0s infinite normal none running bounce',
-          }} src={arrowDown} width={56} height={56} />
-        </div>
+        <HomePage nextElement={firstElementRef} />
       </Panel>
       <Panel title='Arveye - Destinêye' url='https://proximity.justabayet.com/?view=thread_three'
         description={`The red thread of fate is an invisible red cord connecting you to the person you are destined to be with, regardless of place, time, or context. The thread may stretch and bend but never break. 
