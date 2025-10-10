@@ -58,7 +58,7 @@ function Resume() {
                 <MidSection>
                     <h1>Vistaprint</h1>
 
-                    <img src={vistaprintLogo} width={LOGO_SIZE} height={LOGO_SIZE} />
+                    <img src={vistaprintLogo} width={LOGO_SIZE} height={LOGO_SIZE} alt="Vistaprint Logo" />
 
                     <h2>Software Engineer</h2>
                 </MidSection>
@@ -78,7 +78,7 @@ function Resume() {
                 <MidSection>
                     <h1>University of Saskatchewan</h1>
 
-                    <img src={usaskLogo} width={LOGO_SIZE} height={LOGO_SIZE} />
+                    <img src={usaskLogo} width={LOGO_SIZE} height={LOGO_SIZE} alt="USASK Logo" />
 
                     <h2>Research Trainee</h2>
                 </MidSection>
@@ -94,7 +94,7 @@ function Resume() {
                 <MidSection>
                     <h1>University of Namur</h1>
 
-                    <img src={unamurLogo} width={LOGO_SIZE} height={LOGO_SIZE} />
+                    <img src={unamurLogo} width={LOGO_SIZE} height={LOGO_SIZE} alt="Unamur Logo" />
 
                     <h2>Bachelor + Master's Degree</h2>
                 </MidSection>

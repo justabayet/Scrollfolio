@@ -5,9 +5,11 @@ interface ButtonUIProps {
     url: string
     src?: string
     description: string
+    alt?: string
+    ariaLabel: string
 }
 
-const ButtonUI = ({ url, src, description }: ButtonUIProps) => {
+const ButtonUI = ({ url, src, description, alt, ariaLabel }: ButtonUIProps) => {
     const [showDialog, setShowDialog] = useState(false);
 
     const openUrl = () => { window.open(url, '_blank') }
@@ -31,8 +33,9 @@ const ButtonUI = ({ url, src, description }: ButtonUIProps) => {
             <button
                 onClick={handleButtonClick}
                 className='ui-button'
+                aria-label={ariaLabel}
             >
-                {src && <img src={src} width={28} height={28} />}
+                {src && <img src={src} width={28} height={28} alt={alt} />}
             </button>
 
             {
@@ -74,14 +77,14 @@ const ButtonUI = ({ url, src, description }: ButtonUIProps) => {
                                     background: "var(--color-primary)",
                                     color: "var(--color-accent)",
                                     border: "2px solid var(--color-accent)"
-                                }} onClick={closeDialog}>
+                                }} onClick={closeDialog} aria-label="Cancel dialog action">
                                     Cancel
                                 </button>
 
                                 <button style={{
                                     background: "var(--color-accent)",
                                     color: "var(--color-primary)",
-                                }} onClick={openUrl}>
+                                }} onClick={openUrl} aria-label="Confirm dialog action">
                                     Open
                                 </button>
                             </div>

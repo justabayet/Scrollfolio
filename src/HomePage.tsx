@@ -59,7 +59,7 @@ function HomePage({ nextElement }: HomePageProps) {
                 <img style={{
                     paddingTop: 3,
                     animation: '1.2s cubic-bezier(0.35, 0.01, 0.67, 0.98) 0s infinite normal none running bounce',
-                }} src={arrowDown} width={56} height={56} />
+                }} src={arrowDown} width={56} height={56} alt='Down Arrow' />
             </div>
         </>
     )

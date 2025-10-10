@@ -4,6 +4,7 @@ interface VideoProps {
     src: string
     srcBackground: string
     blur?: number
+    alt: string
 }
 
 const keyframes = `
@@ -12,7 +13,7 @@ const keyframes = `
     100% { transform:  translate(-50%, -50%) rotate(360deg);}
 }`;
 
-function Video({ src, blur = 15, srcBackground }: VideoProps) {
+function Video({ src, blur = 15, srcBackground, alt }: VideoProps) {
     const frontVideoRef = useRef<HTMLVideoElement>(null)
 
     const [isVideoLoaded, setIsVideoLoaded] = useState(false)
@@ -90,7 +91,8 @@ function Video({ src, blur = 15, srcBackground }: VideoProps) {
                     position: 'absolute',
                     top: `-${2 * blur}px`,
                     left: `-${2 * blur}px`,
-                }}>
+                }}
+                alt={`Background Img: ${alt}`}>
 
             </img>
         </div>
