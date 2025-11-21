@@ -52,7 +52,7 @@ function Resume() {
                 <div ref={page2}></div>
 
                 <TopSection>
-                    2.7 Years
+                    2.5 Years
                 </TopSection>
 
                 <MidSection>
