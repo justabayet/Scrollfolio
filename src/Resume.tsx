@@ -39,7 +39,6 @@ function Resume() {
                 <MidSection>
                     <div>
                         <h1>Creative Developer</h1>
-                        <h1>Freelance</h1>
                     </div>
                 </MidSection>
 
