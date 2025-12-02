@@ -65,11 +65,12 @@ function Panel({
                     textAlign: 'left',
                     padding: '1em',
                     background: collapsedDescription
-                        ? 'linear-gradient(transparent, #050e1515, 2em, #050e1582, 100%, #050e15ff)'
-                        : 'linear-gradient(transparent, #050e1566, 1em, #050e15ff)',
+                        ? 'linear-gradient(transparent, #050e1515, 0.5em, #050e1582, 100%, #050e15ff)'
+                        : 'linear-gradient(transparent, #050e15a5, 0.5em, #050e15ff)',
 
                     maxHeight: collapsedDescription ? '4em' : '10em',
                     overflowY: collapsedDescription ? 'hidden' : 'auto',
+                    color: 'white'
                 }}>
                 {title != null &&
                     <div>{collapsedDescription ? '▼' : '▲'} <strong>{title}</strong></div>}
@@ -79,7 +80,7 @@ function Panel({
                             maxWidth: '70vw',
                             cursor: 'pointer',
                             whiteSpace: 'pre-line',
-                            color: 'var(--color-accent)'
+                            // color: 'var(--color-accent)'
                         }}
                     >
                         {description}
