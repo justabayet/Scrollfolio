@@ -19,7 +19,8 @@ function HomePage({ nextElement }: HomePageProps) {
             <div style={{
                 width: '100%',
                 height: '100%',
-                background: 'linear-gradient( #0f293eff, #141414ff )',
+                // background: 'linear-gradient( #0f293eff, #141414ff )',
+                backgroundColor: "#141414ff",
                 color: 'var(--color-accent)',
                 display: 'flex',
                 flexDirection: 'column',
