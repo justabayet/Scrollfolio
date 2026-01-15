@@ -34,7 +34,7 @@ function App() {
       <Panel>
         <HomePage nextElement={firstElementRef} />
       </Panel>
-      <Panel title='Arveye - Destinêye' url='https://proximity.justabayet.com/?view=thread_three'
+      <Panel title='Arveye - Destinêye - Mobile Website, GPS, Gyroscope' url='https://proximity.justabayet.com/?view=thread_three'
         description={`The red thread of fate is an invisible red cord connecting you to the person you are destined to be with, regardless of place, time, or context. The thread may stretch and bend but never break. 
 
 Destinêye reveals this invisible thread, making the connection more tangible. It shows the thread emanating from you and going towards the person you are connected to.
@@ -48,7 +48,7 @@ This project has been built on top of a previous iteration, Arveye: Foundation, 
         <div ref={firstElementRef} />
         <Video src={arveyeThread} srcBackground={arveyeThreadBackground} alt='Arveye - Destinêye' />
       </Panel>
-      <Panel title='Arveye - Aweye' url='https://proximity.justabayet.com/?view=kikk'
+      <Panel title='Arveye - Aweye - Mobile Website, GPS, Gyroscope' url='https://proximity.justabayet.com/?view=kikk'
         description={`Exploring new places is fantastic but can be overwhelming. With so much to see and so little guidance, it is easy to worry about missing something.
 
 Aweye is here to turn modern exploration into a gamified experience and a dynamic artwork, guiding you through the streets of Barcelona, never missing a glimpse of its Spanish charm, and returning with an eternal digital souvenir, or accompanying you in the Universal Exposition across the many pavilions, piece by piece, assembling an artwork as a symbol of unity and mutual respect.
@@ -61,7 +61,7 @@ PS: About this specific representation, it is a Voronoi diagram, which is used t
       >
         <Video src={arveyeKikk} srcBackground={arveyeKikkBackground} alt='Arveye - Aweye' />
       </Panel>
-      <Panel title='Arveye - Solrece'
+      <Panel title='Arveye - Solrece - Mobile Website, GPS, Gyroscope'
 
         description={`We are all solar systems of our own. Each of us is a star, casting our personal light on the people we are connected to. At the same time, every person we know reflects their own light back, shaping who we are. These symbiotic exchanges of influence are represented here as a solar system: you at the center, and your loved ones as the planets that always remain part of your orbit.
 
@@ -70,10 +70,10 @@ Built on Arveye: Foundation, Arveye: Sistinme is the first representation explor
 No Matter Where`}>
         <Video src={arveyeStoele} srcBackground={arveyeStoeleBackground} alt='Arveye - Solrece' />
       </Panel>
-      <Panel description='Just shaders. No AI. No edits.'>
+      <Panel title='River - WebGL Shader' description='Just shaders. No AI. No edits.'>
         <Video src={shaderRiver} srcBackground={shaderRiverBackground} alt='Shaders of a river' />
       </Panel>
-      <Panel title='Arveye - Wallpaper'
+      <Panel title='Arveye - Wallpaper - Android Wallpaper, GPS, Gyroscope'
 
         description={`A painting on your wall doesn't ask for your attention, it simply exists there, catching your eye during morning coffee or late-night thoughts. 
 
@@ -85,7 +85,7 @@ Technical notes: Due to current iOS limitations, highly dynamic wallpapers like 
 `}>
         <Video src={arveyeWallpaper} srcBackground={arveyeWallpaperBackground} alt='Arveye - Wallpaper' />
       </Panel>
-      <Panel title='Arveye - Foundation'
+      <Panel title='Arveye - Foundation - Mobile Website, GPS, Gyroscope'
         description={`Many people have to live far from their loved ones, isolated. Sometimes to chase a dream, to study, to escape or to discover the world. But whatever the reason, distance often creates the perfect conditions for loneliness to grow and quietly take over.
 
 This project is trying to bring a spark of light in those moments. 
