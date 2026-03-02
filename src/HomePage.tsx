@@ -36,12 +36,10 @@ function HomePage({ nextElement }: HomePageProps) {
                     <h2>Creative Developer</h2>
                     <p>Belgium 🇧🇪 {EMAIL_ADDRESS}</p>
                     <p style={{
-                        fontFamily: 'system-ui',
                         padding: '24px 16px 0px 16px',
-                        fontSize: '12px',
                         textAlign: 'left'
                     }}>
-                        <b>Crafting</b> websites to bring life to <b>your creative</b> vision.
+                        <span>Crafting</span> websites to bring life to <b>your creative</b> vision.
                         <br /><br />
                         Working through the <b>entire web stack</b>, using <b>React, Three.js, GLSL and Node.js</b> to build fully working web experiences that are <b>smooth, innovative and engaging</b>.
                     </p>
