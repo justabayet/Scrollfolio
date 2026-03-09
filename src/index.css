@@ -83,7 +83,9 @@ button:focus-visible {
 
 .ui-button {
   background-color: var(--color-primary);
-  padding: 1em;
+  padding: 0.75em;
   border-radius: 50%;
   display: flex;
+  -webkit-box-shadow: 0px 0px 15px -2px #0000006f;
+  box-shadow: 0px 0px 15px -2px #0000006f;
 }
