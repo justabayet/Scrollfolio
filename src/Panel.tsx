@@ -56,7 +56,8 @@ function Panel({
             scrollSnapStop: "always",
             position: 'relative',
             fontFamily: 'system-ui',
-            color: 'var(--color-accent)'
+            color: 'var(--color-accent)',
+            overflow: 'hidden'
         }} onClick={() => {
             descriptionContainerRef.current?.scrollTo({ top: 0 })
             setCollapsedDescription(true)

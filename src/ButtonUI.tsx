@@ -35,24 +35,15 @@ const ButtonUI = ({ url, src, description, alt, ariaLabel, delay }: ButtonUIProp
         <>
 
             <motion.button
-                initial={{ x: 100 }} // Start 100px to the right
-                animate={{ x: 0 }}   // End at original position
-                transition={{ duration: 1, ease: "easeOut", delay }} // Smooth transition
-                whileHover={{ scale: 1.1 }} // Optional: hover effect
-                whileTap={{ scale: 0.95 }}   // Optional: tap effect
+                initial={{ x: 100 }}
+                animate={{ x: 0 }}
+                transition={{ duration: 1, ease: "easeOut", delay }}
                 onClick={handleButtonClick}
                 className='ui-button'
                 aria-label={ariaLabel}
             >
                 {src && <img src={src} width={28} height={28} alt={alt} />}
             </motion.button>
-            {/* <button
-                onClick={handleButtonClick}
-                className='ui-button'
-                aria-label={ariaLabel}
-            >
-                {src && <img src={src} width={28} height={28} alt={alt} />}
-            </button> */}
 
             {
                 createPortal(<>{showDialog && (
