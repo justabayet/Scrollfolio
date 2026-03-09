@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
+import { motion } from "framer-motion";
 
 interface ButtonUIProps {
     url: string
@@ -7,10 +8,12 @@ interface ButtonUIProps {
     description: string
     alt?: string
     ariaLabel: string
+    delay: number
 }
 
-const ButtonUI = ({ url, src, description, alt, ariaLabel }: ButtonUIProps) => {
+const ButtonUI = ({ url, src, description, alt, ariaLabel, delay }: ButtonUIProps) => {
     const [showDialog, setShowDialog] = useState(false);
+
 
     const openUrl = () => { window.open(url, '_blank') }
 
@@ -30,13 +33,26 @@ const ButtonUI = ({ url, src, description, alt, ariaLabel }: ButtonUIProps) => {
 
     return (
         <>
-            <button
+
+            <motion.button
+                initial={{ x: 100 }} // Start 100px to the right
+                animate={{ x: 0 }}   // End at original position
+                transition={{ duration: 1, ease: "easeOut", delay }} // Smooth transition
+                whileHover={{ scale: 1.1 }} // Optional: hover effect
+                whileTap={{ scale: 0.95 }}   // Optional: tap effect
                 onClick={handleButtonClick}
                 className='ui-button'
                 aria-label={ariaLabel}
             >
                 {src && <img src={src} width={28} height={28} alt={alt} />}
-            </button>
+            </motion.button>
+            {/* <button
+                onClick={handleButtonClick}
+                className='ui-button'
+                aria-label={ariaLabel}
+            >
+                {src && <img src={src} width={28} height={28} alt={alt} />}
+            </button> */}
 
             {
                 createPortal(<>{showDialog && (

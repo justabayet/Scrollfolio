@@ -1,6 +1,9 @@
 
+import { useState } from 'react';
 import arrowDown from './assets/down-chevron-svg.svg'
+import BlurIn from './BlurIn';
 import { EMAIL_ADDRESS } from './const'
+import { motion } from 'framer-motion'
 
 const keyframes = `
 @keyframes bounce {
@@ -13,6 +16,7 @@ interface HomePageProps {
 }
 
 function HomePage({ nextElement }: HomePageProps) {
+    const [isTitleDisplayed, setIsTitleDisplayed] = useState(false)
     return (
         <>
             <div style={{
@@ -33,52 +37,65 @@ function HomePage({ nextElement }: HomePageProps) {
                     maxWidth: '500px',
                     padding: '12px'
                 }}>
-                    <h1>Anthony Bayet</h1>
-                    <h2 >Creative Developer</h2>
-                    <p style={{
-                        fontFamily: 'system-ui',
-                        fontWeight: 200
-                    }}>Belgium 🇧🇪 {EMAIL_ADDRESS}</p>
-                    <p style={{
-                        padding: '24px 16px 0px 16px',
-                        textAlign: 'left',
-                        fontFamily: 'system-ui',
-                        fontWeight: 200
-                    }}>
-                        I build web experiences to bring life to your creative vision.
-                        <br /><br />
-                        {'<'}React{'>'} {'<'}Three.js{'>'} {'<'}WebGL{'>'} {'<'}Node.js{'>'}
-                    </p>
+                    <BlurIn onAnimationComplete={() => { setIsTitleDisplayed(true) }}><h1>Anthony Bayet</h1></BlurIn>
+                    <BlurIn><h2 >Creative Developer</h2></BlurIn>
+
+
+                    <motion.div
+                        initial={{ filter: 'blur(10px)', opacity: 0 }}
+                        animate={{ filter: 'blur(0px)', opacity: 1 }}
+                        transition={{ duration: 0.7, delay: 1 }}
+                    >
+                        <p style={{
+                            fontFamily: 'system-ui',
+                            fontWeight: 200
+                        }}>Belgium 🇧🇪 {EMAIL_ADDRESS}</p>
+                        <p style={{
+                            padding: '24px 16px 0px 16px',
+                            textAlign: 'left',
+                            fontFamily: 'system-ui',
+                            fontWeight: 200
+                        }}>
+                            I build web experiences to bring life to your creative vision.
+                            <br /><br />
+                            {'<'}React{'>'} {'<'}Three.js{'>'} {'<'}WebGL{'>'} {'<'}Node.js{'>'}
+                        </p>
+                    </motion.div>
                 </div>
                 <div style={{ height: '10%' }}></div>
             </div>
 
-            <div
-                onClick={() => {
-                    if (nextElement.current == null) return
-                    nextElement.current.scrollIntoView({ behavior: 'smooth' })
-                }}
-                style={{
-                    borderRadius: '50%',
-                    position: 'absolute',
-                    bottom: '16px',
-                    left: '50%',
-                    width: '48px',
-                    height: '48px',
-                    transform: 'translate(-50%)',
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    zIndex: 11,
-                    cursor: 'pointer'
-                }}>
+            {isTitleDisplayed &&
+                <motion.div
+                    initial={{ filter: 'blur(10px)', opacity: 0 }}
+                    animate={{ filter: 'blur(0px)', opacity: 1 }}
+                    transition={{ duration: .5, delay: 0.5 }}
+                    onClick={() => {
+                        if (nextElement.current == null) return
+                        nextElement.current.scrollIntoView({ behavior: 'smooth' })
+                    }}
+                    style={{
+                        borderRadius: '50%',
+                        position: 'absolute',
+                        bottom: '16px',
+                        left: '50%',
+                        width: '48px',
+                        height: '48px',
+                        transform: 'translate(-50%)',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        zIndex: 11,
+                        cursor: 'pointer'
+                    }}>
 
-                <style>{keyframes}</style>
-                <img style={{
-                    paddingTop: 3,
-                    animation: '.5s cubic-bezier(0.04, 0.74, 0.61, 0.9) 0s infinite alternate none running bounce',
-                }} src={arrowDown} width={56} height={56} alt='Down Arrow' />
-            </div>
+                    <style>{keyframes}</style>
+                    <img style={{
+                        paddingTop: 3,
+                        animation: '.5s cubic-bezier(0.04, 0.74, 0.61, 0.9) 0s infinite alternate none running bounce',
+                    }} src={arrowDown} width={56} height={56} alt='Down Arrow' />
+                </motion.div>
+            }
         </>
     )
 }
