@@ -5,8 +5,7 @@ import { EMAIL_ADDRESS } from './const'
 const keyframes = `
 @keyframes bounce {
     0% { padding-top: 12px; }
-    50% { padding-top: 0px; }
-    100% { padding-top: 12px; }
+    100% { padding-top: 0px; }
 }`;
 
 interface HomePageProps {
@@ -77,7 +76,7 @@ function HomePage({ nextElement }: HomePageProps) {
                 <style>{keyframes}</style>
                 <img style={{
                     paddingTop: 3,
-                    animation: '1.2s cubic-bezier(0.35, 0.01, 0.67, 0.98) 0s infinite normal none running bounce',
+                    animation: '.5s cubic-bezier(0.03, 0.58, 0.68, 0.99) 0s infinite alternate none running bounce',
                 }} src={arrowDown} width={56} height={56} alt='Down Arrow' />
             </div>
         </>
