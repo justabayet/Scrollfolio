@@ -51,7 +51,7 @@ function HomePage({ nextElement }: HomePageProps) {
                         {'<'}React{'>'} {'<'}Three.js{'>'} {'<'}WebGL{'>'} {'<'}Node.js{'>'}
                     </p>
                 </div>
-                <div style={{ height: '20%' }}></div>
+                <div style={{ height: '10%' }}></div>
             </div>
 
             <div
