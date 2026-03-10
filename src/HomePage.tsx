@@ -79,7 +79,7 @@ function HomePage({ nextElement }: HomePageProps) {
                 <style>{keyframes}</style>
                 <img style={{
                     paddingTop: 3,
-                    animation: '.5s cubic-bezier(0.04, 0.74, 0.61, 0.9) 1.9s infinite alternate none running bounce',
+                    animation: '.5s cubic-bezier(0, 0.35, 0.47, 0.99) 1.9s infinite alternate none running bounce',
                 }} src={arrowDown} width={56} height={56} alt='Down Arrow' />
             </motion.div>
         </>
