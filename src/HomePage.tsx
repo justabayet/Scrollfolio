@@ -29,7 +29,8 @@ function HomePage({ nextElement }: HomePageProps) {
             }}>
                 <div style={{
                     maxWidth: '500px',
-                    padding: '12px'
+                    padding: '12px',
+                    color: 'white'
                 }}>
                     <BlurIn><h1>Anthony Bayet</h1></BlurIn>
                     <BlurIn><h2 >Creative Developer 🇧🇪</h2></BlurIn>
