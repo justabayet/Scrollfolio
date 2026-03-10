@@ -19,7 +19,6 @@ function HomePage({ nextElement }: HomePageProps) {
             <div style={{
                 width: '100%',
                 height: '100%',
-                backgroundColor: 'var(--color-primary)',
                 color: 'var(--color-accent)',
                 display: 'flex',
                 flexDirection: 'column',
@@ -56,9 +55,9 @@ function HomePage({ nextElement }: HomePageProps) {
             </div>
 
             <motion.div
-                initial={{ y: -50, opacity: 0 }}
+                initial={{ y: -40, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 1, delay: 1.3 }}
+                transition={{ duration: 0.6, delay: 1.3 }}
                 onClick={() => {
                     if (nextElement.current == null) return
                     nextElement.current.scrollIntoView({ behavior: 'smooth' })
@@ -80,7 +79,7 @@ function HomePage({ nextElement }: HomePageProps) {
                 <style>{keyframes}</style>
                 <img style={{
                     paddingTop: 3,
-                    animation: '.5s cubic-bezier(0.04, 0.74, 0.61, 0.9) 1.3s infinite alternate none running bounce',
+                    animation: '.5s cubic-bezier(0.04, 0.74, 0.61, 0.9) 1.9s infinite alternate none running bounce',
                 }} src={arrowDown} width={56} height={56} alt='Down Arrow' />
             </motion.div>
         </>
