@@ -5,6 +5,7 @@ import redirectLogo from './assets/external-link-svg.svg'
 import mailLogo from './assets/email-svg.svg'
 import { EMAIL_ADDRESS, GITHUB_URL, LINKEDIN_URL } from './const'
 import ButtonUI from './ButtonUI'
+import { motion } from "framer-motion"
 
 interface PanelProps extends PropsWithChildren {
     description?: string
@@ -13,7 +14,7 @@ interface PanelProps extends PropsWithChildren {
     uiButtonsDelay?: number
 }
 
-const RANDOM_DELAY_BASE = 0.1
+const RANDOM_DELAY_BASE = -0.1
 
 const RANDOM_DELAY = {
     'redirect': RANDOM_DELAY_BASE * 4,
@@ -21,6 +22,9 @@ const RANDOM_DELAY = {
     'linkedin': RANDOM_DELAY_BASE * 2,
     'github': RANDOM_DELAY_BASE * 1,
 }
+
+const TEXT_BACKGROUND_COLLAPSED = 'linear-gradient(transparent, #050e1515, 4em, #050e1543, 6em, rgba(5, 14, 21, 0.37))'
+const TEXT_BACKGROUND_EXPANDED = 'linear-gradient(transparent, #050e1528, 6em, #050e1573, 10em, rgba(5, 14, 21, 0.53))'
 
 function Panel({
     title,
@@ -64,9 +68,25 @@ function Panel({
         }}>
             {children}
             {/* Description */}
-            <div
+            <motion.div
                 onClick={toggleCollapse}
                 ref={descriptionContainerRef}
+
+                initial={{
+                    background: TEXT_BACKGROUND_COLLAPSED,
+                    height: '10em'
+                }}
+                animate={collapsedDescription
+                    ? {
+                        background: TEXT_BACKGROUND_COLLAPSED,
+                        height: '10em'
+                    }
+                    : {
+                        background: TEXT_BACKGROUND_EXPANDED,
+                        height: '13em'
+                    }}
+
+                transition={{ duration: 0.3, ease: "linear" }}
                 style={{
                     position: 'absolute',
                     bottom: 0,
@@ -76,18 +96,40 @@ function Panel({
                     width: 'calc(100vw - 2em)',
                     textAlign: 'left',
                     padding: '1em',
-                    background: collapsedDescription
-                        ? 'linear-gradient(transparent, #050e1515, 0.5em, #050e1582, 100%, #050e15ff)'
-                        : 'linear-gradient(transparent, #050e15a5, 0.5em, #050e15ff)',
-
-                    maxHeight: collapsedDescription ? '4em' : '10em',
                     overflowY: collapsedDescription ? 'hidden' : 'auto',
-                    color: 'white'
+                    color: 'white',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    justifyContent: 'end'
                 }}>
                 {title != null &&
-                    <div>{collapsedDescription ? '▼' : '▲'} <strong>{title}</strong></div>}
+                    <div style={{
+                        display: 'flex',
+                        gap: '0.3em'
+                    }}>
+                        <motion.div style={{
+                            transform: 'rotate(180deg)',
+                            width: 'fit-content',
+                            height: 'fit-content'
+                        }}
+                            initial={{ rotate: 180 }}
+                            animate={collapsedDescription ? { rotate: 180 } : { rotate: 0 }}
+                            transition={{ duration: 0.3, ease: "linear" }}>
+                            ▼
+                        </motion.div>
+
+                        <div>
+                            <strong>{title}</strong>
+                        </div>
+                    </div>}
                 {description != null &&
-                    <div
+                    <motion.div
+
+                        initial={{ maxHeight: '4em' }}
+                        animate={collapsedDescription
+                            ? { maxHeight: '4em' }
+                            : { maxHeight: '10em' }}
+
                         style={{
                             maxWidth: '70vw',
                             cursor: 'pointer',
@@ -96,8 +138,8 @@ function Panel({
                         }}
                     >
                         {description}
-                    </div>}
-            </div>
+                    </motion.div>}
+            </motion.div>
             {/* Buttons */}
             <div style={{
                 position: 'absolute',

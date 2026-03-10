@@ -35,10 +35,10 @@ function App() {
       overflow: "scroll",
       height: "100dvh"
     }}>
-      <Panel uiButtonsDelay={1}>
+      <Panel uiButtonsDelay={2}>
         <HomePage nextElement={firstElementRef} />
       </Panel>
-      <Panel title='Arveye - Destinêye - Web📱, 📍, Sensors' url='https://proximity.justabayet.com/?view=thread_three'
+      <Panel title='Arveye Destinêye - Web' url='https://proximity.justabayet.com/?view=thread_three'
         description={`The red thread of fate is an invisible red cord connecting you to the person you are destined to be with, regardless of place, time, or context. The thread may stretch and bend but never break. 
 
 Destinêye reveals this invisible thread, making the connection more tangible. It shows the thread emanating from you and going towards the person you are connected to.
@@ -50,13 +50,13 @@ I personally don’t believe in fate, but I do believe in relationships built ou
 This project has been built on top of a previous iteration, Arveye: Foundation, providing the toolbox to connect users, leveraging the internal compass of modern devices, and ultimately getting the relative position between users. Once again displaying the power of software-based art sharing a common foundation, with little to no tweaking necessary, and allowing to create completely different artworks.`}
       >
         <div ref={firstElementRef} />
-        <Video src={arveyeThread} srcBackground={arveyeThreadBackground} alt='Arveye - Destinêye' />
+        <Video src={arveyeThread} srcBackground={arveyeThreadBackground} alt='Arveye Destinêye' />
       </Panel>
-      <Panel title='Arveye - Christmas 🎄 - Web📱, 📍, Sensors' url='https://christmas.justabayet.com/?couz=48.853%2C2.348%2CGrandma+%26+Grandpa%7C47.071%2C3.003%2CMom+%26+Dad%7C35.677%2C139.764%2CMe%7C41.893%2C12.483%2CNana%7C-33.870%2C151.208%2CBro'
+      <Panel title='Arveye Christmas 🎄 - Web' url='https://christmas.justabayet.com/?couz=48.853%2C2.348%2CGrandma+%26+Grandpa%7C47.071%2C3.003%2CMom+%26+Dad%7C35.677%2C139.764%2CMe%7C41.893%2C12.483%2CNana%7C-33.870%2C151.208%2CBro'
         description={`Christmas is the occasion to gather with the people we care for. But sometimes life, career, distance get in the way.
-We end up scattered around the globe, physically far from home. Arveye - Christmas helps connect the dots between us, no matter where we are on the globe. `}
+We end up scattered around the globe, physically far from home. Arveye Christmas helps connect the dots between us, no matter where we are on the globe. `}
       >
-        <Video src={arveyeChristmas} srcBackground={arveyeChristmasBackground} alt='Arveye - Christmas' />
+        <Video src={arveyeChristmas} srcBackground={arveyeChristmasBackground} alt='Arveye Christmas' />
       </Panel>
       <Panel title='Mosaic - Android Wallpaper' url='https://www.linkedin.com/posts/anthony-bayet_how-do-you-bring-digital-art-home-it-feels-activity-7417158615775485952-uG9a?utm_source=share&utm_medium=member_desktop&rcm=ACoAACsdOWMBcHv7TS920yUrZPFfSf0qmKOaBgc'
         description={`How do you bring digital art home?
@@ -86,7 +86,7 @@ Technology: Opengl ES for high performance animation.`}
       >
         <Video src={mosaic} srcBackground={mosaicBackground} alt='Mosaic' />
       </Panel>
-      <Panel title='Arveye - Aweye - Web📱, 📍, Sensors' url='https://proximity.justabayet.com/?view=kikk'
+      <Panel title='Arveye Aweye - Web' url='https://proximity.justabayet.com/?view=kikk'
         description={`Exploring new places is fantastic but can be overwhelming. With so much to see and so little guidance, it is easy to worry about missing something.
 
 Aweye is here to turn modern exploration into a gamified experience and a dynamic artwork, guiding you through the streets of Barcelona, never missing a glimpse of its Spanish charm, and returning with an eternal digital souvenir, or accompanying you in the Universal Exposition across the many pavilions, piece by piece, assembling an artwork as a symbol of unity and mutual respect.
@@ -97,21 +97,21 @@ And this is only the beginning. The project still has many possibilities for new
 
 PS: About this specific representation, it is a Voronoi diagram, which is used to represent intricate biological structures such as cells. It reflects the notion that every human creation and celebration, be it festivities, fascinating architectures, or cities, they all are like building blocks of life.`}
       >
-        <Video src={arveyeKikk} srcBackground={arveyeKikkBackground} alt='Arveye - Aweye' />
+        <Video src={arveyeKikk} srcBackground={arveyeKikkBackground} alt='Arveye Aweye' />
       </Panel>
-      <Panel title='Arveye - Solrece - Web📱, 📍, Sensors'
+      <Panel title='Arveye Solrece - Web'
 
         description={`We are all solar systems of our own. Each of us is a star, casting our personal light on the people we are connected to. At the same time, every person we know reflects their own light back, shaping who we are. These symbiotic exchanges of influence are represented here as a solar system: you at the center, and your loved ones as the planets that always remain part of your orbit.
 
 Built on Arveye: Foundation, Arveye: Sistinme is the first representation exploring how regardless of distance, the people we know continue to influence our steps and are influenced by us. The connection to the real world geolocation of people helps keep a more physical sense of connection with those who matter most.
 
 No Matter Where`}>
-        <Video src={arveyeStoele} srcBackground={arveyeStoeleBackground} alt='Arveye - Solrece' />
+        <Video src={arveyeStoele} srcBackground={arveyeStoeleBackground} alt='Arveye Solrece' />
       </Panel>
-      <Panel title='River - WebGL Shader' description='Just shaders. No AI. No edits.'>
+      <Panel title='River - WebGL' description='Just shaders. No AI. No edits.'>
         <Video src={shaderRiver} srcBackground={shaderRiverBackground} alt='Shaders of a river' />
       </Panel>
-      <Panel title='Arveye - Wallpaper - Android Wallpaper, 📍, Sensors'
+      <Panel title='Arveye Wallpaper - Android Wallpaper'
 
         description={`A painting on your wall doesn't ask for your attention, it simply exists there, catching your eye during morning coffee or late-night thoughts. 
 
@@ -121,9 +121,9 @@ Arveye: Wallpaper changes this entirely. By becoming your phone wallpaper, it ap
 
 Technical notes: Due to current iOS limitations, highly dynamic wallpapers like this are only available on Android platforms. The wallpaper optimizes battery usage by entering sleep mode when not actively displayed. Sensor data is cached locally to maintain smooth performance and ensure the visual remains responsive even during brief sensor delays.
 `}>
-        <Video src={arveyeWallpaper} srcBackground={arveyeWallpaperBackground} alt='Arveye - Wallpaper' />
+        <Video src={arveyeWallpaper} srcBackground={arveyeWallpaperBackground} alt='Arveye Wallpaper' />
       </Panel>
-      {/* <Panel title='Arveye - Foundation - Web📱, 📍, Sensors'
+      {/* <Panel title='Arveye Foundation - Web📱, 📍, Sensors'
         description={`Many people have to live far from their loved ones, isolated. Sometimes to chase a dream, to study, to escape or to discover the world. But whatever the reason, distance often creates the perfect conditions for loneliness to grow and quietly take over.
 
 This project is trying to bring a spark of light in those moments. 

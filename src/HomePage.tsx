@@ -1,9 +1,8 @@
 
-import { useState } from 'react';
 import arrowDown from './assets/down-chevron-svg.svg'
 import BlurIn from './BlurIn';
 import { EMAIL_ADDRESS } from './const'
-import { motion } from 'framer-motion'
+import { motion, type AnimationGeneratorType } from 'framer-motion'
 
 const keyframes = `
 @keyframes bounce {
@@ -16,17 +15,13 @@ interface HomePageProps {
 }
 
 function HomePage({ nextElement }: HomePageProps) {
-    const [isTitleDisplayed, setIsTitleDisplayed] = useState(false)
     return (
         <>
             <div style={{
                 width: '100%',
                 height: '100%',
-                // background: 'linear-gradient( #0f293eff, #141414ff )',
-                // backgroundColor: "#141414ff",
                 backgroundColor: 'var(--color-primary)',
                 color: 'var(--color-accent)',
-                // color: 'white',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -37,14 +32,13 @@ function HomePage({ nextElement }: HomePageProps) {
                     maxWidth: '500px',
                     padding: '12px'
                 }}>
-                    <BlurIn onAnimationComplete={() => { setIsTitleDisplayed(true) }}><h1>Anthony Bayet</h1></BlurIn>
+                    <BlurIn><h1>Anthony Bayet</h1></BlurIn>
                     <BlurIn><h2 >Creative Developer</h2></BlurIn>
 
-
                     <motion.div
-                        initial={{ filter: 'blur(10px)', opacity: 0 }}
-                        animate={{ filter: 'blur(0px)', opacity: 1 }}
-                        transition={{ duration: 0.7, delay: 1 }}
+                        initial={{ opacity: 0, y: -18 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1.2, delay: 1.3, type: 'spring' as AnimationGeneratorType }}
                     >
                         <p style={{
                             fontFamily: 'system-ui',
@@ -65,37 +59,35 @@ function HomePage({ nextElement }: HomePageProps) {
                 <div style={{ height: '10%' }}></div>
             </div>
 
-            {isTitleDisplayed &&
-                <motion.div
-                    initial={{ filter: 'blur(10px)', opacity: 0 }}
-                    animate={{ filter: 'blur(0px)', opacity: 1 }}
-                    transition={{ duration: .5, delay: 0.5 }}
-                    onClick={() => {
-                        if (nextElement.current == null) return
-                        nextElement.current.scrollIntoView({ behavior: 'smooth' })
-                    }}
-                    style={{
-                        borderRadius: '50%',
-                        position: 'absolute',
-                        bottom: '16px',
-                        left: '50%',
-                        width: '48px',
-                        height: '48px',
-                        transform: 'translate(-50%)',
-                        display: 'flex',
-                        justifyContent: 'center',
-                        alignItems: 'center',
-                        zIndex: 11,
-                        cursor: 'pointer'
-                    }}>
+            <motion.div
+                initial={{ y: -50, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: .5, delay: 1.3 }}
+                onClick={() => {
+                    if (nextElement.current == null) return
+                    nextElement.current.scrollIntoView({ behavior: 'smooth' })
+                }}
+                style={{
+                    borderRadius: '50%',
+                    position: 'absolute',
+                    bottom: '16px',
+                    left: '50%',
+                    width: '48px',
+                    height: '48px',
+                    transform: 'translate(-50%)',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    zIndex: 11,
+                    cursor: 'pointer'
+                }}>
 
-                    <style>{keyframes}</style>
-                    <img style={{
-                        paddingTop: 3,
-                        animation: '.5s cubic-bezier(0.04, 0.74, 0.61, 0.9) 0s infinite alternate none running bounce',
-                    }} src={arrowDown} width={56} height={56} alt='Down Arrow' />
-                </motion.div>
-            }
+                <style>{keyframes}</style>
+                <img style={{
+                    paddingTop: 3,
+                    animation: '.5s cubic-bezier(0.04, 0.74, 0.61, 0.9) 0s infinite alternate none running bounce',
+                }} src={arrowDown} width={56} height={56} alt='Down Arrow' />
+            </motion.div>
         </>
     )
 }
