@@ -68,6 +68,7 @@ function Panel({
         }}>
             {children}
             {/* Description */}
+
             <motion.div
                 onClick={toggleCollapse}
                 ref={descriptionContainerRef}
@@ -100,45 +101,51 @@ function Panel({
                     color: 'white',
                     display: 'flex',
                     flexDirection: 'column',
-                    justifyContent: 'end'
+                    justifyContent: 'end',
+                    pointerEvents: 'none'
                 }}>
-                {title != null &&
-                    <div style={{
-                        display: 'flex',
-                        gap: '0.3em'
+                <div
+                    onClick={toggleCollapse}
+                    style={{
+                        pointerEvents: 'auto'
                     }}>
-                        <motion.div style={{
-                            transform: 'rotate(180deg)',
-                            width: 'fit-content',
-                            height: 'fit-content'
-                        }}
-                            initial={{ rotate: 180 }}
-                            animate={collapsedDescription ? { rotate: 180 } : { rotate: 0 }}
-                            transition={{ duration: 0.3, ease: "linear" }}>
-                            ▼
-                        </motion.div>
+                    {title != null &&
+                        <div onClick={toggleCollapse} style={{
+                            display: 'flex',
+                            gap: '0.3em'
+                        }}>
+                            <motion.div style={{
+                                transform: 'rotate(180deg)',
+                                width: 'fit-content',
+                                height: 'fit-content',
+                            }}
+                                initial={{ rotate: 180 }}
+                                animate={collapsedDescription ? { rotate: 180 } : { rotate: 0 }}
+                                transition={{ duration: 0.3, ease: "linear" }}>
+                                ▼
+                            </motion.div>
 
-                        <div>
-                            <strong>{title}</strong>
-                        </div>
-                    </div>}
-                {description != null &&
-                    <motion.div
+                            <div>
+                                <strong>{title}</strong>
+                            </div>
+                        </div>}
+                    {description != null &&
+                        <motion.div
 
-                        initial={{ maxHeight: '4em' }}
-                        animate={collapsedDescription
-                            ? { maxHeight: '4em' }
-                            : { maxHeight: '10em' }}
-
-                        style={{
-                            maxWidth: '70vw',
-                            cursor: 'pointer',
-                            whiteSpace: 'pre-line',
-                            // color: 'var(--color-accent)'
-                        }}
-                    >
-                        {description}
-                    </motion.div>}
+                            initial={{ maxHeight: '4em' }}
+                            animate={collapsedDescription
+                                ? { maxHeight: '4em' }
+                                : { maxHeight: '10em' }}
+                            onClick={toggleCollapse}
+                            style={{
+                                maxWidth: '70vw',
+                                cursor: 'pointer',
+                                whiteSpace: 'pre-line',
+                            }}
+                        >
+                            {description}
+                        </motion.div>}
+                </div>
             </motion.div>
             {/* Buttons */}
             <div style={{
