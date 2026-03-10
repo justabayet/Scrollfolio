@@ -3,7 +3,7 @@ import vistaprintLogo from './assets/vistaprint_logo.jpeg'
 import usaskLogo from './assets/university_of_saskatchewan_logo.jpeg'
 import unamurLogo from './assets/universite_de_namur_logo.jpeg'
 import { useScroll } from "motion/react"
-import { motion, MotionValue, useMotionValueEvent, useTransform } from "framer-motion"
+import { motion, useMotionValueEvent, useTransform } from "framer-motion"
 import { COLOR_ACCENT, COLOR_PRIMARY } from "./const"
 
 const NB_PAGES = 4
@@ -137,8 +137,8 @@ function Navigator({ containerRef }: NavigatorProps) {
     const { scrollXProgress } = useScroll({ container: containerRef });
 
     const leftPosition = useTransform(scrollXProgress, [0, 1], ["10%", "90%"]);
-    const colorMain = useTransform(scrollXProgress, [0, 0.33, 0.66, 1], [COLOR_PRIMARY, COLOR_ACCENT, COLOR_PRIMARY, COLOR_ACCENT]);
-    const colorInverse = useTransform(scrollXProgress, [0, 0.33, 0.66, 1], [COLOR_ACCENT, COLOR_PRIMARY, COLOR_ACCENT, COLOR_PRIMARY]);
+    // const colorMain = useTransform(scrollXProgress, [0, 0.33, 0.66, 1], [COLOR_PRIMARY, COLOR_ACCENT, COLOR_PRIMARY, COLOR_ACCENT]);
+    // const colorInverse = useTransform(scrollXProgress, [0, 0.33, 0.66, 1], [COLOR_ACCENT, COLOR_PRIMARY, COLOR_ACCENT, COLOR_PRIMARY]);
 
     useMotionValueEvent(scrollXProgress, "change", (latest) => {
         console.log("Page scroll: ", latest)
@@ -158,15 +158,15 @@ function Navigator({ containerRef }: NavigatorProps) {
         }}>
             {(Array.from({ length: NB_PAGES })).map((_, index) => {
                 return (
-                    <Ball key={index} colorMain={colorMain} colorInverse={colorInverse} />
+                    <Ball key={index} />
                 )
             })}
 
             <motion.div style={{
-                width: '0.5em',
-                height: '0.5em',
+                width: '0.6em',
+                height: '0.6em',
                 borderRadius: '50%',
-                backgroundColor: colorMain,
+                backgroundColor: COLOR_PRIMARY,
                 position: 'absolute',
                 translateX: "-50%",
                 left: leftPosition
@@ -175,12 +175,7 @@ function Navigator({ containerRef }: NavigatorProps) {
     )
 }
 
-interface BallProps {
-    colorMain: MotionValue<string>
-    colorInverse: MotionValue<string>
-}
-
-function Ball({ colorInverse, colorMain }: BallProps) {
+function Ball() {
 
     return (
         <motion.div style={{
@@ -188,8 +183,9 @@ function Ball({ colorInverse, colorMain }: BallProps) {
             height: '0.5em',
             borderRadius: '50%',
             border: `0.1em solid`,
-            backgroundColor: colorInverse,
-            borderColor: colorMain,
+            backgroundColor: COLOR_ACCENT,
+            boxShadow: `0px 0px 5px -2px ${COLOR_ACCENT}`,
+            borderColor: COLOR_PRIMARY,
         }} />
     )
 }
