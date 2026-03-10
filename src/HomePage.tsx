@@ -1,7 +1,6 @@
 
 import arrowDown from './assets/down-chevron-svg.svg'
 import BlurIn from './BlurIn';
-import { EMAIL_ADDRESS } from './const'
 import { motion, type AnimationGeneratorType } from 'framer-motion'
 
 const keyframes = `
@@ -33,17 +32,13 @@ function HomePage({ nextElement }: HomePageProps) {
                     padding: '12px'
                 }}>
                     <BlurIn><h1>Anthony Bayet</h1></BlurIn>
-                    <BlurIn><h2 >Creative Developer</h2></BlurIn>
+                    <BlurIn><h2 >Creative Developer 🇧🇪</h2></BlurIn>
 
                     <motion.div
                         initial={{ opacity: 0, y: -18 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1.2, delay: 1.3, type: 'spring' as AnimationGeneratorType }}
+                        transition={{ duration: 1.8, delay: 1.3, type: 'spring' as AnimationGeneratorType }}
                     >
-                        <p style={{
-                            fontFamily: 'system-ui',
-                            fontWeight: 200
-                        }}>Belgium 🇧🇪 {EMAIL_ADDRESS}</p>
                         <p style={{
                             padding: '24px 16px 0px 16px',
                             textAlign: 'left',
@@ -62,7 +57,7 @@ function HomePage({ nextElement }: HomePageProps) {
             <motion.div
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: .5, delay: 1.3 }}
+                transition={{ duration: 1, delay: 1.3 }}
                 onClick={() => {
                     if (nextElement.current == null) return
                     nextElement.current.scrollIntoView({ behavior: 'smooth' })
