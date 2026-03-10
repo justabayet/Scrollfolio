@@ -35,7 +35,7 @@ function App() {
       overflow: "scroll",
       height: "100dvh"
     }}>
-      <Panel uiButtonsDelay={2.5}>
+      <Panel uiButtonsDelay={2.5} useEmail>
         <HomePage nextElement={firstElementRef} />
       </Panel>
       <Panel title='Arveye Destinêye - Web' url='https://proximity.justabayet.com/?view=thread_three'
@@ -134,7 +134,7 @@ This first implementation lays the foundation by implementing the core principle
       >
         <Video src={arveyeFoundation} srcBackground={arveyeFoundationBackground} alt='Arveye - Foundation' />
       </Panel> */}
-      <Panel>
+      <Panel useEmail>
         <Resume />
       </Panel>
     </div>

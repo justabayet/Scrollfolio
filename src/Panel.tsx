@@ -12,6 +12,8 @@ interface PanelProps extends PropsWithChildren {
     title?: string
     url?: string
     uiButtonsDelay?: number
+    useEmail?: boolean
+    useGithub?: boolean
 }
 
 const RANDOM_DELAY_BASE = -0.1
@@ -26,12 +28,17 @@ const RANDOM_DELAY = {
 const TEXT_BACKGROUND_COLLAPSED = 'linear-gradient(transparent, #050e1515, 4em, #050e1543, 6em, rgba(5, 14, 21, 0.37))'
 const TEXT_BACKGROUND_EXPANDED = 'linear-gradient(transparent, #050e1528, 6em, #050e1573, 10em, rgba(5, 14, 21, 0.53))'
 
+const USE_GITHUB = false
+const USE_EMAIL = false
+
 function Panel({
     title,
     description,
     children,
     url,
-    uiButtonsDelay = 0.5
+    uiButtonsDelay = 0.5,
+    useGithub = USE_GITHUB,
+    useEmail = USE_EMAIL
 }: PanelProps) {
     const descriptionContainerRef = useRef<HTMLDivElement>(null)
     const [collapsedDescription, setCollapsedDescription] = useState(true)
@@ -160,9 +167,9 @@ function Panel({
             }}>
                 {url && <ButtonUI src={redirectLogo} url={url} description='Open project?' alt='Redirect icon' ariaLabel='Open project in new tab' delay={uiButtonsDelay + RANDOM_DELAY.redirect} />}
 
-                <ButtonUI src={mailLogo} url={`mailto:${EMAIL_ADDRESS}`} description='Open email application?' alt='Email icon' ariaLabel='Open email app' delay={uiButtonsDelay + RANDOM_DELAY.mail} />
+                {useEmail && <ButtonUI src={mailLogo} url={`mailto:${EMAIL_ADDRESS}`} description='Open email application?' alt='Email icon' ariaLabel='Open email app' delay={uiButtonsDelay + RANDOM_DELAY.mail} />}
                 <ButtonUI src={linkedinLogo} url={LINKEDIN_URL} description='Open LinkedIn?' alt='LinkedIn icon' ariaLabel='Open LinkedIn profile' delay={uiButtonsDelay + RANDOM_DELAY.linkedin} />
-                <ButtonUI src={githubSVGLogo} url={GITHUB_URL} description='Open Github?' alt='Github icon' ariaLabel='Open Github profile' delay={uiButtonsDelay + RANDOM_DELAY.github} />
+                {useGithub && <ButtonUI src={githubSVGLogo} url={GITHUB_URL} description='Open Github?' alt='Github icon' ariaLabel='Open Github profile' delay={uiButtonsDelay + RANDOM_DELAY.github} />}
             </div>
         </div>
     )
