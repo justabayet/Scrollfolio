@@ -1,7 +1,10 @@
-import { useRef, type PropsWithChildren } from "react"
+import { useRef, type PropsWithChildren, type RefObject } from "react"
 import vistaprintLogo from './assets/vistaprint_logo.jpeg'
 import usaskLogo from './assets/university_of_saskatchewan_logo.jpeg'
 import unamurLogo from './assets/universite_de_namur_logo.jpeg'
+import { useScroll } from "motion/react"
+import { motion, MotionValue, useMotionValueEvent, useTransform } from "framer-motion"
+import { COLOR_ACCENT, COLOR_PRIMARY } from "./const"
 
 const NB_PAGES = 4
 const LOGO_SIZE = 80
@@ -12,8 +15,10 @@ function Resume() {
     const page3 = useRef<HTMLDivElement | null>(null)
     const page4 = useRef<HTMLDivElement | null>(null)
 
+    const scrollAreaRef = useRef<HTMLDivElement>(null!)
+
     return (
-        <div style={{
+        <div ref={scrollAreaRef} style={{
             width: '100%',
             height: '100%',
             background: 'var(--color-accent)',
@@ -41,8 +46,6 @@ function Resume() {
                         <h1>Creative Developer</h1>
                     </div>
                 </MidSection>
-
-                <Navigator index={0} />
             </ResumePage>
             <ResumePage onClick={() => {
                 if (page3.current == null) return
@@ -61,8 +64,6 @@ function Resume() {
 
                     <h2>Software Engineer</h2>
                 </MidSection>
-
-                <Navigator index={1} isInversed />
             </ResumePage>
             <ResumePage onClick={() => {
                 if (page4.current == null) return
@@ -81,8 +82,6 @@ function Resume() {
 
                     <h2>Research Trainee</h2>
                 </MidSection>
-
-                <Navigator index={2} />
             </ResumePage>
             <ResumePage onClick={() => {
                 if (page1.current == null) return
@@ -98,8 +97,9 @@ function Resume() {
                     <h2>Bachelor + Master's Degree</h2>
                 </MidSection>
 
-                <Navigator index={3} isInversed />
             </ResumePage>
+
+            <Navigator containerRef={scrollAreaRef} />
         </div>
     )
 }
@@ -129,47 +129,67 @@ function ResumePage({ children, isInversed = false, onClick }: ResumePageProps) 
 }
 
 interface NavigatorProps {
-    index: number
-    isInversed?: boolean
+    containerRef: RefObject<HTMLDivElement>
 }
 
-function Navigator({ index: indexActive, isInversed }: NavigatorProps) {
+function Navigator({ containerRef }: NavigatorProps) {
+
+    const { scrollXProgress } = useScroll({ container: containerRef });
+
+    const leftPosition = useTransform(scrollXProgress, [0, 1], ["10%", "90%"]);
+    const colorMain = useTransform(scrollXProgress, [0, 0.33, 0.66, 1], [COLOR_PRIMARY, COLOR_ACCENT, COLOR_PRIMARY, COLOR_ACCENT]);
+    const colorInverse = useTransform(scrollXProgress, [0, 0.33, 0.66, 1], [COLOR_ACCENT, COLOR_PRIMARY, COLOR_ACCENT, COLOR_PRIMARY]);
+
+    useMotionValueEvent(scrollXProgress, "change", (latest) => {
+        console.log("Page scroll: ", latest)
+    })
+    console.log(scrollXProgress)
     return (
         <div style={{
             display: 'flex',
             flexDirection: 'row',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             position: 'absolute',
             left: '50%',
             bottom: '2em',
             transform: 'translateX(-50%)',
-            gap: '0.25em'
+            gap: '0.25em',
         }}>
             {(Array.from({ length: NB_PAGES })).map((_, index) => {
                 return (
-                    <Ball key={index} isFull={indexActive === index} isInversed={isInversed} />
+                    <Ball key={index} colorMain={colorMain} colorInverse={colorInverse} />
                 )
             })}
+
+            <motion.div style={{
+                width: '0.5em',
+                height: '0.5em',
+                borderRadius: '50%',
+                backgroundColor: colorMain,
+                position: 'absolute',
+                translateX: "-50%",
+                left: leftPosition
+            }} />
         </div>
     )
 }
 
 interface BallProps {
-    isFull?: boolean
-    isInversed?: boolean
+    colorMain: MotionValue<string>
+    colorInverse: MotionValue<string>
 }
 
-function Ball({ isFull = false, isInversed = false }: BallProps) {
-    const color = isInversed ? 'var(--color-accent)' : 'var(--color-primary)'
+function Ball({ colorInverse, colorMain }: BallProps) {
 
     return (
-        <div style={{
+        <motion.div style={{
             width: '0.5em',
             height: '0.5em',
             borderRadius: '50%',
-            border: `0.1em solid ${color}`,
-            backgroundColor: isFull ? `${color}` : 'transparent'
+            border: `0.1em solid`,
+            backgroundColor: colorInverse,
+            borderColor: colorMain,
         }} />
     )
 }
