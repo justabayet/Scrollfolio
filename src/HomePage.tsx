@@ -66,10 +66,9 @@ function HomePage({ nextElement }: HomePageProps) {
                     borderRadius: '50%',
                     position: 'absolute',
                     bottom: '16px',
-                    left: '50%',
-                    width: '48px',
+                    left: '0',
+                    width: '100%',
                     height: '48px',
-                    transform: 'translate(-50%)',
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -80,7 +79,7 @@ function HomePage({ nextElement }: HomePageProps) {
                 <style>{keyframes}</style>
                 <img style={{
                     paddingTop: 3,
-                    animation: '.5s cubic-bezier(0.04, 0.74, 0.61, 0.9) 0s infinite alternate none running bounce',
+                    animation: '.5s cubic-bezier(0.04, 0.74, 0.61, 0.9) 1.3s infinite alternate none running bounce',
                 }} src={arrowDown} width={56} height={56} alt='Down Arrow' />
             </motion.div>
         </>
