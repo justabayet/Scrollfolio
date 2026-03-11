@@ -25,6 +25,18 @@ import Video from './Video'
 import HomePage from './HomePage'
 import Resume from './Resume'
 
+const welcomeMessage = `
+  ▲  ANTHONY BAYET
+  ▼  Creative Developer | Belgium
+  
+  Stack: React • WebGL • Three.js
+`;
+
+console.log(
+  `%c${welcomeMessage}`,
+  "color: #14002d; font-weight: bold; font-family: monospace;"
+);
+
 function App() {
   const firstElementRef = useRef<HTMLDivElement>(null)
 
