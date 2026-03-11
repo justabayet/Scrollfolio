@@ -140,10 +140,6 @@ function Navigator({ containerRef }: NavigatorProps) {
     // const colorMain = useTransform(scrollXProgress, [0, 0.33, 0.66, 1], [COLOR_PRIMARY, COLOR_ACCENT, COLOR_PRIMARY, COLOR_ACCENT]);
     // const colorInverse = useTransform(scrollXProgress, [0, 0.33, 0.66, 1], [COLOR_ACCENT, COLOR_PRIMARY, COLOR_ACCENT, COLOR_PRIMARY]);
 
-    useMotionValueEvent(scrollXProgress, "change", (latest) => {
-        console.log("Page scroll: ", latest)
-    })
-    console.log(scrollXProgress)
     return (
         <div style={{
             display: 'flex',
