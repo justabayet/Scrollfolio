@@ -35,7 +35,7 @@ function App() {
       overflow: "scroll",
       height: "100dvh"
     }}>
-      <Panel uiButtonsDelay={2.5} useEmail>
+      <Panel uiButtonsDelay={1.4} useEmail>
         <HomePage nextElement={firstElementRef} />
       </Panel>
       <Panel title='Arveye Destinêye - Web' url='https://proximity.justabayet.com/?view=thread_three'
