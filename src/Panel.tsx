@@ -57,7 +57,7 @@ function Panel({
         if (descriptionContainerRef.current == null) return
 
         setIsOverflow(descriptionContainerRef.current.scrollHeight > descriptionContainerRef.current.offsetHeight)
-    }, [title])
+    }, [])
 
     return (
         <div style={{
@@ -67,7 +67,7 @@ function Panel({
             scrollSnapStop: "always",
             position: 'relative',
             fontFamily: 'system-ui',
-            color: 'var(--color-accent)',
+            color: 'white',
             overflow: 'hidden'
         }} onClick={() => {
             descriptionContainerRef.current?.scrollTo({ top: 0 })
@@ -121,16 +121,17 @@ function Panel({
                             display: 'flex',
                             gap: '0.3em'
                         }}>
-                            <motion.div style={{
-                                transform: 'rotate(180deg)',
-                                width: 'fit-content',
-                                height: 'fit-content',
-                            }}
-                                initial={{ rotate: 180 }}
-                                animate={collapsedDescription ? { rotate: 180 } : { rotate: 0 }}
-                                transition={{ duration: 0.3, ease: "linear" }}>
-                                ▼
-                            </motion.div>
+                            {isOverflow &&
+                                <motion.div style={{
+                                    transform: 'rotate(180deg)',
+                                    width: 'fit-content',
+                                    height: 'fit-content',
+                                }}
+                                    initial={{ rotate: 180 }}
+                                    animate={collapsedDescription ? { rotate: 180 } : { rotate: 0 }}
+                                    transition={{ duration: 0.3, ease: "linear" }}>
+                                    ▼
+                                </motion.div>}
 
                             <div>
                                 <strong>{title}</strong>
@@ -163,7 +164,8 @@ function Panel({
                 display: 'flex',
                 flexDirection: 'column',
                 padding: '1em',
-                gap: 12
+                gap: 12,
+                pointerEvents: 'none'
             }}>
                 {url && <ButtonUI src={redirectLogo} url={url} description='Open project?' alt='Redirect icon' ariaLabel='Open project in new tab' delay={uiButtonsDelay + RANDOM_DELAY.redirect} />}
 

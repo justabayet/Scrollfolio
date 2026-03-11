@@ -41,6 +41,9 @@ const ButtonUI = ({ url, src, description, alt, ariaLabel, delay }: ButtonUIProp
                 onClick={handleButtonClick}
                 className='ui-button'
                 aria-label={ariaLabel}
+                style={{
+                    pointerEvents: 'auto'
+                }}
             >
                 {src && <img src={src} width={28} height={28} alt={alt} />}
             </motion.button>
@@ -58,7 +61,7 @@ const ButtonUI = ({ url, src, description, alt, ariaLabel, delay }: ButtonUIProp
                         alignItems: 'center',
                         justifyContent: 'center',
                         fontFamily: 'system-ui',
-                        color: 'var(--color-accent)',
+                        color: 'white',
                         zIndex: 1000,
                     }} onClick={closeDialog}>
                         <div style={{
