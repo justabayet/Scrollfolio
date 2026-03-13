@@ -29,7 +29,8 @@ function Resume() {
             overflowY: "hidden",
             display: 'flex',
             flexDirection: 'row',
-            flexWrap: 'nowrap'
+            flexWrap: 'nowrap',
+            scrollbarWidth: 'none'
         }}>
             <ResumePage onClick={() => {
                 if (page2.current == null) return
