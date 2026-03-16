@@ -25,9 +25,6 @@ const RANDOM_DELAY = {
     'github': RANDOM_DELAY_BASE * 1,
 }
 
-const TEXT_BACKGROUND_COLLAPSED = 'linear-gradient(transparent, #050e1515, 4em, #050e1543, 6em, rgba(5, 14, 21, 0.37))'
-const TEXT_BACKGROUND_EXPANDED = 'linear-gradient(transparent, #050e1528, 6em, #050e1573, 10em, rgba(5, 14, 21, 0.53))'
-
 const USE_GITHUB = false
 const USE_EMAIL = false
 
@@ -68,7 +65,8 @@ function Panel({
             position: 'relative',
             fontFamily: 'system-ui',
             color: 'white',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            userSelect: 'none'
         }} onClick={() => {
             descriptionContainerRef.current?.scrollTo({ top: 0 })
             setCollapsedDescription(true)
@@ -76,25 +74,10 @@ function Panel({
             {children}
             {/* Description */}
 
-            <motion.div
+            <div
                 onClick={toggleCollapse}
-                ref={descriptionContainerRef}
 
-                initial={{
-                    background: TEXT_BACKGROUND_COLLAPSED,
-                    height: '10em'
-                }}
-                animate={collapsedDescription
-                    ? {
-                        background: TEXT_BACKGROUND_COLLAPSED,
-                        height: '10em'
-                    }
-                    : {
-                        background: TEXT_BACKGROUND_EXPANDED,
-                        height: '13em'
-                    }}
 
-                transition={{ duration: 0.3, ease: "linear" }}
                 style={{
                     position: 'absolute',
                     bottom: 0,
@@ -104,12 +87,13 @@ function Panel({
                     width: 'calc(100vw - 2em)',
                     textAlign: 'left',
                     padding: '1em',
-                    overflowY: collapsedDescription ? 'hidden' : 'auto',
                     color: 'white',
                     display: 'flex',
                     flexDirection: 'column',
                     justifyContent: 'end',
-                    pointerEvents: 'none'
+                    pointerEvents: 'none',
+                    background: 'linear-gradient(transparent, #050e1528, 10em, #050e1573, 18em, rgba(5, 14, 21, 0.53))',
+                    height: '16em'
                 }}>
                 <div
                     onClick={toggleCollapse}
@@ -129,7 +113,7 @@ function Panel({
                                 }}
                                     initial={{ rotate: 180 }}
                                     animate={collapsedDescription ? { rotate: 180 } : { rotate: 0 }}
-                                    transition={{ duration: 0.3, ease: "linear" }}>
+                                    transition={{ duration: 0.1, ease: "easeIn" }}>
                                     ▼
                                 </motion.div>}
 
@@ -139,6 +123,7 @@ function Panel({
                         </div>}
                     {description != null &&
                         <motion.div
+                            ref={descriptionContainerRef}
 
                             initial={{ maxHeight: '4em' }}
                             animate={collapsedDescription
@@ -146,17 +131,24 @@ function Panel({
                                 : { maxHeight: '10em' }}
                             onClick={toggleCollapse}
                             style={{
-                                maxWidth: '70vw',
-                                cursor: 'pointer',
-                                whiteSpace: 'pre-line',
+                                overflowY: collapsedDescription ? 'hidden' : 'auto',
+                                scrollbarWidth: "none"
                             }}
                         >
-                            {description}
+                            <div
+
+                                style={{
+                                    maxWidth: '70vw',
+                                    cursor: 'pointer',
+                                    whiteSpace: 'pre-line',
+                                }}>
+                                {description}
+                            </div>
                         </motion.div>}
                 </div>
-            </motion.div>
+            </div >
             {/* Buttons */}
-            <div style={{
+            < div style={{
                 position: 'absolute',
                 bottom: 0,
                 right: 0,
@@ -166,14 +158,15 @@ function Panel({
                 padding: '1em',
                 gap: 12,
                 pointerEvents: 'none'
-            }}>
+            }
+            }>
                 {url && <ButtonUI src={redirectLogo} url={url} description='Open project?' alt='Redirect icon' ariaLabel='Open project in new tab' delay={uiButtonsDelay + RANDOM_DELAY.redirect} />}
 
                 {useEmail && <ButtonUI src={mailLogo} url={`mailto:${EMAIL_ADDRESS}`} description='Open email application?' alt='Email icon' ariaLabel='Open email app' delay={uiButtonsDelay + RANDOM_DELAY.mail} />}
                 <ButtonUI src={linkedinLogo} url={LINKEDIN_URL} description='Open LinkedIn?' alt='LinkedIn icon' ariaLabel='Open LinkedIn profile' delay={uiButtonsDelay + RANDOM_DELAY.linkedin} />
                 {useGithub && <ButtonUI src={githubSVGLogo} url={GITHUB_URL} description='Open Github?' alt='Github icon' ariaLabel='Open Github profile' delay={uiButtonsDelay + RANDOM_DELAY.github} />}
-            </div>
-        </div>
+            </div >
+        </div >
     )
 }
 
