@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import './App.css'
 import Panel from './Panel'
+import photoGallery from './assets/videos/photo-gallery.mp4'
 import arveyeKikk from './assets/videos/arveye-kikk.mp4'
 // import arveyeFoundation from './assets/videos/arveye-foundation.mp4'
 import arveyeStoele from './assets/videos/arveye-stoele.mp4'
@@ -10,6 +11,7 @@ import shaderRiver from './assets/videos/shader-river.mp4'
 import arveyeChristmas from './assets/videos/arveye-christmas.mp4'
 import mosaic from './assets/videos/mosaic.mp4'
 
+import photoGalleryBackground from './assets/thumbnails/photo-gallery.webp'
 import arveyeKikkBackground from './assets/thumbnails/arveye-kikk.webp'
 // import arveyeFoundationBackground from './assets/thumbnails/arveye-foundation.webp'
 import arveyeStoeleBackground from './assets/thumbnails/arveye-stoele.webp'
@@ -51,6 +53,12 @@ function App() {
             <Panel uiButtonsDelay={1.4} useEmail>
                 <HomePage nextElement={firstElementRef} />
             </Panel>
+            <Panel title='Digital Photo Gallery' url='https://rain-drops.justabayet.com/'
+                description={`Photos by Tristan Haquenne.`}
+            >
+                <div ref={firstElementRef} />
+                <Video src={photoGallery} srcBackground={photoGalleryBackground} alt='Digital Photo Gallery - Photos by Tristan Haquenne' />
+            </Panel>
             <Panel title='Arveye Destinêye - Web' url='https://proximity.justabayet.com/?view=thread_three'
                 description={`The red thread of fate is an invisible red cord connecting you to the person you are destined to be with, regardless of place, time, or context. The thread may stretch and bend but never break. 
 
@@ -62,7 +70,6 @@ I personally don’t believe in fate, but I do believe in relationships built ou
 
 This project has been built on top of a previous iteration, Arveye: Foundation, providing the toolbox to connect users, leveraging the internal compass of modern devices, and ultimately getting the relative position between users. Once again displaying the power of software-based art sharing a common foundation, with little to no tweaking necessary, and allowing to create completely different artworks.`}
             >
-                <div ref={firstElementRef} />
                 <Video src={arveyeThread} srcBackground={arveyeThreadBackground} alt='Arveye Destinêye' />
             </Panel>
             <Panel title='Arveye Christmas 🎄 - Web' url='https://christmas.justabayet.com/?couz=48.853%2C2.348%2CGrandma+%26+Grandpa%7C47.071%2C3.003%2CMom+%26+Dad%7C35.677%2C139.764%2CMe%7C41.893%2C12.483%2CNana%7C-33.870%2C151.208%2CBro'

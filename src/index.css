@@ -13,7 +13,7 @@
 
     --color-accent: #fff7d6;
     --color-primary: #0f293e;
-    color: var(--color-accent);
+    color: white;
 }
 
 a {

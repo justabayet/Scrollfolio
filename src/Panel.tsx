@@ -139,7 +139,7 @@ function Panel({
 
                                 style={{
                                     maxWidth: '70vw',
-                                    cursor: 'pointer',
+                                    cursor: isOverflow ? 'pointer' : 'auto',
                                     whiteSpace: 'pre-line',
                                 }}>
                                 {description}
