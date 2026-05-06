@@ -20,7 +20,7 @@ function Resume() {
             <ResumePage >
                 <MidSection>
                     <div>
-                        <h1 style={{ padding: '20px' }}>What's next...</h1>
+                        <h1 style={{ padding: '20px' }}>More to come...</h1>
                     </div>
                 </MidSection>
             </ResumePage>
