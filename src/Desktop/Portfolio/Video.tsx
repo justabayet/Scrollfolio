@@ -1,0 +1,89 @@
+import { useRef, useState } from "react"
+
+interface VideoProps {
+    src: string
+    srcBackground: string
+    blur?: number
+    alt: string
+}
+
+const keyframes = `
+@keyframes spin {
+    0% { transform:  translate(-50%, -50%) rotate(0deg);}
+    100% { transform:  translate(-50%, -50%) rotate(360deg);}
+}`;
+
+function Video({ src, blur = 15, srcBackground, alt }: VideoProps) {
+    const frontVideoRef = useRef<HTMLVideoElement>(null)
+
+    const [isVideoLoaded, setIsVideoLoaded] = useState(false)
+
+    const handleLoadedData = () => {
+        setIsVideoLoaded(true)
+        frontVideoRef.current?.play()
+    }
+
+    return (
+        <div style={{
+            position: 'relative', height: '100%', width: '100%',
+            overflow: 'hidden'
+        }}>
+            <style>{keyframes}</style>
+            {!isVideoLoaded &&
+                <div style={{
+                    width: '50px',
+                    height: '50px',
+                    position: 'absolute',
+                    zIndex: 11,
+                    top: '50%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    boxSizing: 'border-box',
+                    borderRadius: '50%',
+                    animation: '1.2s cubic-bezier(0.35, 0.01, 0.67, 0.98) 0s infinite normal none running spin',
+                    borderColor: 'rgb(153, 153, 153) rgb(236, 236, 236) rgb(236, 236, 236)',
+                    borderWidth: '2px',
+                    borderStyle: 'solid',
+                }}>
+                </div>
+            }
+            {/* Front Video */}
+            <video
+                ref={frontVideoRef}
+                muted
+                loop
+                autoPlay
+                playsInline
+                onLoadedData={handleLoadedData}
+                poster={srcBackground}
+                style={{
+                    height: '100%',
+                    width: '100%',
+                    objectFit: 'scale-down',
+                    position: 'absolute',
+                    zIndex: 10,
+                    left: '50%',
+                    transform: 'translate(-50%)',
+                }} >
+                <source src={src} type="video/mp4" />
+            </video>
+
+            <img
+                src={srcBackground}
+                style={{
+                    height: `calc(100% + ${4 * blur}px)`,
+                    width: `calc(100% + ${4 * blur}px)`,
+                    objectFit: 'cover',
+                    filter: `blur(${blur}px)`,
+                    position: 'absolute',
+                    top: `-${2 * blur}px`,
+                    left: `-${2 * blur}px`,
+                }}
+                alt={`Background Img: ${alt}`}>
+
+            </img>
+        </div>
+    )
+}
+
+export default Video
