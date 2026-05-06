@@ -1,5 +1,5 @@
 
-import arrowDown from './assets/down-chevron-svg.svg'
+import arrowDown from '../assets/down-chevron-svg.svg'
 import BlurIn from './BlurIn';
 import { motion, type AnimationGeneratorType } from 'framer-motion'
 
