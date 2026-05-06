@@ -3,7 +3,6 @@ import './App.css'
 import Panel from './Panel'
 import photoGallery from './assets/videos/photo-gallery.mp4'
 import arveyeKikk from './assets/videos/arveye-kikk.mp4'
-// import arveyeFoundation from './assets/videos/arveye-foundation.mp4'
 import arveyeStoele from './assets/videos/arveye-stoele.mp4'
 import arveyeThread from './assets/videos/arveye-thread.mp4'
 import arveyeWallpaper from './assets/videos/arveye-wallpaper.mp4'
@@ -13,7 +12,6 @@ import mosaic from './assets/videos/mosaic.mp4'
 
 import photoGalleryBackground from './assets/thumbnails/photo-gallery.webp'
 import arveyeKikkBackground from './assets/thumbnails/arveye-kikk.webp'
-// import arveyeFoundationBackground from './assets/thumbnails/arveye-foundation.webp'
 import arveyeStoeleBackground from './assets/thumbnails/arveye-stoele.webp'
 import arveyeThreadBackground from './assets/thumbnails/arveye-thread.webp'
 import arveyeWallpaperBackground from './assets/thumbnails/arveye-wallpaper.webp'
@@ -143,17 +141,6 @@ Technical notes: Due to current iOS limitations, highly dynamic wallpapers like 
 `}>
                 <Video src={arveyeWallpaper} srcBackground={arveyeWallpaperBackground} alt='Arveye Wallpaper' />
             </Panel>
-            {/* <Panel title='Arveye Foundation - Web📱, 📍, Sensors'
-        description={`Many people have to live far from their loved ones, isolated. Sometimes to chase a dream, to study, to escape or to discover the world. But whatever the reason, distance often creates the perfect conditions for loneliness to grow and quietly take over.
-
-This project is trying to bring a spark of light in those moments. 
-
-It lets two people connect through a one-time sharing link. Once connected, it shares each other’s geolocation and shows in which direction your friend is, by using modern phone’s built-in sensors: gyroscope, magnetometer and accelerometer.
-
-This first implementation lays the foundation by implementing the core principles: connecting people, sharing geolocation, getting phone absolute direction. Future development will build on this foundation to explore various ways of representing these connections. Finding different, simple yet meaningful ways to make distant people feel present again.`}
-      >
-        <Video src={arveyeFoundation} srcBackground={arveyeFoundationBackground} alt='Arveye - Foundation' />
-      </Panel> */}
             <Panel useEmail>
                 <Resume />
             </Panel>
