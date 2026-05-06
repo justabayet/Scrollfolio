@@ -4,7 +4,7 @@ import usaskLogo from '../assets/university_of_saskatchewan_logo.jpeg'
 import unamurLogo from '../assets/universite_de_namur_logo.jpeg'
 import { useScroll } from "motion/react"
 import { motion, useTransform } from "framer-motion"
-import { COLOR_ACCENT, COLOR_PRIMARY } from "./const"
+import { COLOR_ACCENT, COLOR_PRIMARY } from "../const"
 
 const NB_PAGES = 4
 const LOGO_SIZE = 80
