@@ -2,7 +2,7 @@ import { useFrame } from "@react-three/fiber"
 import { useLayoutEffect, useState } from "react"
 import { Bone, Group, MathUtils } from "three"
 import { useScrollData } from "../provider/ScrollProvider"
-import { _intersectionPoint } from "./updateIntersection"
+import { _intersectionPoint } from "./useUpdateIntersection"
 import { usePhaseData } from "../provider/PhaseProvider"
 
 interface HandProps {

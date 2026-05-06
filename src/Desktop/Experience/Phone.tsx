@@ -6,7 +6,7 @@ import { useGSAP } from "@gsap/react"
 import { useRef } from "react"
 import { createPortal } from "@react-three/fiber"
 import Hand from "./Hand"
-import updateIntersection from "./updateIntersection"
+import useUpdateIntersection from "./useUpdateIntersection"
 gsap.registerPlugin(useGSAP)
 
 interface PhoneProps {
@@ -32,7 +32,7 @@ export default function Phone({ scene }: PhoneProps) {
     const phoneNode = scene.getObjectByName('Phone')
 
 
-    updateIntersection(phoneContainerRef)
+    useUpdateIntersection(phoneContainerRef)
 
     return (
         <group ref={groupRef} position-z={-4}>

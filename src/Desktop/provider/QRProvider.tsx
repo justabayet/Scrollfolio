@@ -1,4 +1,4 @@
-import { createContext, Dispatch, SetStateAction, useContext, useMemo, useState, type PropsWithChildren } from 'react'
+import { createContext, type Dispatch, type SetStateAction, useContext, useMemo, useState, type PropsWithChildren } from 'react'
 
 export type QRData = {
     shown: boolean

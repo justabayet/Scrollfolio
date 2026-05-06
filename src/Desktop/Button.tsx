@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, DetailedHTMLProps, HTMLAttributes, PropsWithChildren } from "react"
+import { type ButtonHTMLAttributes, type DetailedHTMLProps, type PropsWithChildren } from "react"
 
 interface ButtonProps extends PropsWithChildren, DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
     onClick?: () => void

@@ -1,9 +1,9 @@
-import { Camera, Group, Object3D, Plane, Quaternion, Raycaster, Vector2, Vector3 } from "three"
+import { Object3D, Plane, Quaternion, Raycaster, Vector2, Vector3 } from "three"
 import { isInsideOrClosest } from "../geometryUtils"
 import { pointer } from "../hooks/usePointerTracking"
 import useActionArea from "./useActionArea"
 import { useFrame } from "@react-three/fiber"
-import { RefObject } from "react"
+import { type RefObject } from "react"
 
 const _worldNormal = new Vector3()
 const _worldPoint = new Vector3()
@@ -13,7 +13,7 @@ export const _intersectionPoint = new Vector3()
 
 const raycaster = new Raycaster()
 
-export default function updateIntersection(ref: RefObject<Object3D>) {
+export default function useUpdateIntersection(ref: RefObject<Object3D>) {
     const points = useActionArea()
 
     useFrame(({ camera }) => {
