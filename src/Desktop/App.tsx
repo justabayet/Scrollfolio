@@ -9,7 +9,7 @@ import usePointerTracking from './hooks/usePointerTracking'
 import Counter from './Counter'
 import { usePhaseData } from './provider/PhaseProvider'
 import QRButton from './QRButton'
-import { LoaderAnthonyBayet } from 'loader-anthony-bayet'
+import { LoaderBelgian } from 'loader-anthony-bayet'
 import { lazy, Suspense } from 'react'
 
 const Experience = lazy(() => import('./Experience'))
@@ -43,7 +43,7 @@ export default function App() {
             </Canvas>
 
 
-            <LoaderAnthonyBayet variant='belgian' />
+            <LoaderBelgian color={'white'} backgroundColor={'#070709'} />
         </div >
     )
 }
