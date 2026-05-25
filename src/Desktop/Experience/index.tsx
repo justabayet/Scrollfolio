@@ -19,7 +19,7 @@ const MAX_TILT = .02
 
 useGLTF.preload('hand.glb')
 
-export function Experience() {
+export default function Experience() {
     const { phase, setPhase } = usePhaseData()
 
     const getAnimation = () => {

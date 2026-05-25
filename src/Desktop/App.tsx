@@ -1,7 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import { Loader, Stats } from '@react-three/drei'
-
-import { Experience } from './Experience'
+import { Stats } from '@react-three/drei'
 
 import './App.css'
 import Navigator from './Navigator'
@@ -11,6 +9,10 @@ import usePointerTracking from './hooks/usePointerTracking'
 import Counter from './Counter'
 import { usePhaseData } from './provider/PhaseProvider'
 import QRButton from './QRButton'
+import { LoaderAnthonyBayet } from 'loader-anthony-bayet'
+import { lazy, Suspense } from 'react'
+
+const Experience = lazy(() => import('./Experience'))
 
 export default function App() {
     const onWheel = useOnWheel()
@@ -31,13 +33,17 @@ export default function App() {
             }
 
             <Canvas camera={{ fov: 70, position: [0, 0, 5] }} gl={{ powerPreference: 'high-performance' }}>
-                <Stats />
+                <Suspense fallback={null}>
+                    <Stats />
 
-                <color args={['#1d1a24']} attach="background" />
+                    <color args={['#1d1a24']} attach="background" />
 
-                <Experience />
+                    <Experience />
+                </Suspense>
             </Canvas>
-            <Loader />
+
+
+            <LoaderAnthonyBayet variant='belgian' />
         </div >
     )
 }

@@ -1,7 +1,7 @@
-import MobileApp from './Mobile'
 import { lazy } from 'react'
 import useWindowSize from './useWindowSize'
 
+const MobileApp = lazy(() => import('./Mobile'))
 const DesktopApp = lazy(() => import('./Desktop'))
 
 const welcomeMessage = `
