@@ -7,6 +7,7 @@ import { useRef } from "react"
 import { createPortal } from "@react-three/fiber"
 import Hand from "./Hand"
 import useUpdateIntersection from "./useUpdateIntersection"
+import { useProgress } from "@react-three/drei"
 gsap.registerPlugin(useGSAP)
 
 interface PhoneProps {
@@ -17,15 +18,16 @@ export default function Phone({ scene }: PhoneProps) {
     const groupRef = useRef<Object3D>(null)
     const phoneContainerRef = useRef<Object3D>(null!)
 
+    const { progress } = useProgress()
 
     useGSAP(() => {
-        if (!groupRef.current) return
+        if (!groupRef.current || progress < 100) return
 
         gsap.to(groupRef.current.position, {
             z: 0,
             duration: 3,
             ease: 'back.out(0.1)',
-            delay: 0.2
+            delay: 2.2
         })
     }, [])
 
