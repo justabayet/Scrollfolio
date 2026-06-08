@@ -45,7 +45,7 @@ function HomePage({ nextElement }: HomePageProps) {
                             fontFamily: 'system-ui',
                             fontWeight: 200
                         }}>
-                            I build web experiences to bring life to your creative vision.
+                            I develop web experiences to bring life to your creative vision.
                             <br /><br />
                             {'<'}React{'>'} {'<'}Three.js{'>'} {'<'}WebGL{'>'} {'<'}Node.js{'>'}
                         </p>
