@@ -37,12 +37,24 @@ export default function PhoneScreen() {
         interactableRef.current.style.cursor = scrollState.current.isDragging ? 'grabbing' : 'grab'
     })
 
+    const clickState = useRef({
+        downTime: 0,
+        startX: 0,
+        startY: 0
+    })
+
+    const onClick = () => { }
+
     const onPointerDown = (e: React.PointerEvent) => {
         scrollState.current.isDragging = true
         scrollState.current.startY = e.clientY
         scrollState.current.startScroll = scrollState.current.target
             // Capture pointer to keep dragging even if mouse leaves div
             ; (e.target as HTMLElement).setPointerCapture(e.pointerId)
+
+        clickState.current.downTime = Date.now()
+        clickState.current.startX = e.clientX
+        clickState.current.startY = e.clientY
     }
 
     const onPointerMove = (e: React.PointerEvent) => {
@@ -67,7 +79,26 @@ export default function PhoneScreen() {
         scrollState.current.isDragging = false
     }
 
-    const onPointerUp = onStopDragging
+    const isClickValid = (e: React.PointerEvent) => {
+        const timeThreshold = 500
+        const timeDelta = Date.now() - clickState.current.downTime
+        const isTimeShort = timeDelta < timeThreshold
+
+        const movementThreshold = 100
+        const movementX = Math.abs(clickState.current.startX - e.clientX)
+        const movementY = Math.abs(clickState.current.startY - e.clientY)
+        const hasMoved = movementX + movementY > movementThreshold
+
+        return isTimeShort && !hasMoved
+    }
+
+    const onPointerUp = (e: React.PointerEvent) => {
+        onStopDragging()
+
+
+        if (isClickValid(e)) onClick()
+    }
+
     const onPointerOut = onStopDragging
 
     const isVisible = phase != 'Loading' && phase != 'Hovering'
