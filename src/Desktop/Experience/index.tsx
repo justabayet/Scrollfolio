@@ -74,7 +74,6 @@ export default function Experience() {
     return (
         <>
             <Environment preset='city' environmentIntensity={0.2} />
-            <color ref={backgroundColorRef} args={['#070709']} attach="background" />
             <fog attach="fog" args={['#000000', 3, 9.0]} />
 
             <Hovering />

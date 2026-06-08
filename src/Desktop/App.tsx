@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber'
-import { Stats } from '@react-three/drei'
+// import { Stats } from '@react-three/drei'
 
 import './App.css'
 import Navigator from './Navigator'
@@ -11,6 +11,7 @@ import { usePhaseData } from './provider/PhaseProvider'
 import QRButton from './QRButton'
 import { LoaderBelgian } from 'loader-anthony-bayet'
 import { lazy, Suspense } from 'react'
+import { Background } from './Background'
 
 const Experience = lazy(() => import('./Experience'))
 
@@ -23,6 +24,7 @@ export default function App() {
 
     return (
         <div onPointerMove={onPointerMove} onWheel={(!isInitPhase) ? onWheel : undefined} style={{ width: '100vw', height: '100dvh', background: '#000' }}>
+            <Background />
             {(phase == 'Showing') &&
                 <>
                     <Title />
@@ -34,10 +36,6 @@ export default function App() {
 
             <Canvas camera={{ fov: 70, position: [0, 0, 5] }} gl={{ powerPreference: 'high-performance' }}>
                 <Suspense fallback={null}>
-                    <Stats />
-
-                    <color args={['#1d1a24']} attach="background" />
-
                     <Experience />
                 </Suspense>
             </Canvas>
