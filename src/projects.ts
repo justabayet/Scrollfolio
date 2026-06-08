@@ -27,14 +27,6 @@ interface Project {
 
 export const projects: Project[] = [
     {
-        title: 'Digital Photo Gallery',
-        url: 'https://rain-drops.justabayet.com/',
-        description: `Photos by Tristan Haquenne.`,
-        video: photoGallery,
-        background: photoGalleryBackground,
-        alt: 'Digital Photo Gallery - Photos by Tristan Haquenne'
-    },
-    {
         title: 'Arveye Destinêye - Web',
         url: 'https://proximity.justabayet.com/?view=thread_three',
         description: `The red thread of fate is an invisible red cord connecting you to the person you are destined to be with, regardless of place, time, or context. The thread may stretch and bend but never break. 
@@ -49,6 +41,14 @@ This project has been built on top of a previous iteration, Arveye: Foundation, 
         video: arveyeThread,
         background: arveyeThreadBackground,
         alt: 'Arveye Destinêye'
+    },
+    {
+        title: 'Digital Photo Gallery',
+        url: 'https://rain-drops.justabayet.com/',
+        description: `Photos by Tristan Haquenne.`,
+        video: photoGallery,
+        background: photoGalleryBackground,
+        alt: 'Digital Photo Gallery - Photos by Tristan Haquenne'
     },
     {
         title: 'Arveye Christmas 🎄 - Web',
