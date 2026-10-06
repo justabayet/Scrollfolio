@@ -1,6 +1,9 @@
 import { useEffect, useRef } from "react"
 
-const HUE_EFFECT = 30
+const HUE_EFFECT = 155
+const RADIUS_MIN = 20
+const RADIUS_MAX = 30
+const RADIUS_OUTLINE = 40
 
 export function Background() {
     const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -43,28 +46,37 @@ export function Background() {
             p.y += (mouseGittered.y - p.y) * 0.08
 
             ctx.clearRect(0, 0, canvas.width, canvas.height)
+            ctx.globalAlpha = 0.1
 
             trail.push({ x: p.x, y: p.y })
-            if (trail.length > 16) trail.shift()
+            if (trail.length > 64) trail.shift()
 
             trail.forEach((pt, i) => {
                 const t = i / trail.length
-                const g = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, 40 + t * 80)
+                const g = ctx.createRadialGradient(pt.x, pt.y, 0, pt.x, pt.y, RADIUS_MIN + t * (RADIUS_MAX - RADIUS_MIN))
                 g.addColorStop(0, `rgba(${HUE_EFFECT},${HUE_EFFECT},${HUE_EFFECT},${t * 12})`)
                 g.addColorStop(1, `rgba(${HUE_EFFECT},${HUE_EFFECT},${HUE_EFFECT},0)`)
                 ctx.beginPath()
-                ctx.arc(pt.x, pt.y, 40 + t * 80, 0, Math.PI * 2)
+                ctx.arc(pt.x, pt.y, RADIUS_MIN + t * (RADIUS_MAX - RADIUS_MIN), 0, Math.PI * 2)
                 ctx.fillStyle = g
                 ctx.fill()
             })
 
-            const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, 120)
+            const g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, RADIUS_MAX)
             g.addColorStop(0, `rgba(${HUE_EFFECT}, ${HUE_EFFECT}, ${HUE_EFFECT}, 0.01)`)
             g.addColorStop(1, `rgba(${HUE_EFFECT},${HUE_EFFECT},${HUE_EFFECT},0)`)
             ctx.beginPath()
-            ctx.arc(p.x, p.y, 120, 0, Math.PI * 2)
+            ctx.arc(p.x, p.y, RADIUS_MAX, 0, Math.PI * 2)
             ctx.fillStyle = g
             ctx.fill()
+
+
+            ctx.beginPath()
+            ctx.arc(m.x, m.y, RADIUS_OUTLINE, 0, Math.PI * 2)
+            ctx.globalAlpha = 1
+            ctx.lineWidth = 1
+            ctx.strokeStyle = "white"
+            ctx.stroke()
 
             ctx.fillStyle = ctx.createPattern(grain, "repeat")!
             ctx.fillRect(0, 0, canvas.width, canvas.height)
@@ -76,5 +88,5 @@ export function Background() {
         return () => { cancelAnimationFrame(animFrameId); window.removeEventListener("resize", resize) }
     }, [])
 
-    return <canvas ref={canvasRef} style={{ position: "absolute", width: "100vw", height: "100vh", display: "block" }} />
+    return <canvas ref={canvasRef} style={{ position: "absolute", width: "100vw", height: "100vh", display: "block", zIndex: 10000000, pointerEvents: 'none' }} />
 }

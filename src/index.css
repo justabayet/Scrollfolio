@@ -6,11 +6,6 @@
     color-scheme: light dark;
     background-color: #242424;
 
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-
     --color-accent: #fff7d6;
     --color-primary: #0f293e;
     color: white;

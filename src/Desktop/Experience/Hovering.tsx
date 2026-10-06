@@ -56,7 +56,7 @@ export default function Hovering({ }: HoveringProps) {
                     onPointerOver={handlePointerOver}
                     onPointerOut={handlePointerOut}
                     onClick={handleOnClick}>
-                    <planeGeometry args={[2, 4]} />
+                    <planeGeometry args={[2, 5]} />
                     <meshBasicMaterial transparent opacity={0} />
                 </mesh>}
 

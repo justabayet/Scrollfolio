@@ -41,7 +41,9 @@ export default function App() {
             </Canvas>
 
 
-            <LoaderBelgian color={'white'} backgroundColor={'#070709'} />
+            <div style={{ fontFamily: 'Times' }}>
+                <LoaderBelgian color={'white'} backgroundColor={'#070709'} />
+            </div>
         </div >
     )
 }
