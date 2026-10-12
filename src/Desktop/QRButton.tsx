@@ -30,8 +30,9 @@ export default function QRButton() {
                 onClick={() => setShown(v => !v)}
                 style={{
                     zIndex: 100,
-                    width: "64px",
-                    height: "64px",
+                    width: "3em",
+                    height: "3em",
+                    fontSize: '22px',
                     borderRadius: "50%",
                     border: "none",
                     cursor: shown ? "zoom-out" : "zoom-in",

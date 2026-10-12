@@ -12,6 +12,7 @@ import QRButton from './QRButton'
 import { LoaderBelgian } from 'loader-anthony-bayet'
 import { lazy, Suspense } from 'react'
 import { Background } from './Background'
+import Description from './Description'
 
 const Experience = lazy(() => import('./Experience'))
 
@@ -29,6 +30,7 @@ export default function App() {
                 <>
                     <Title />
                     <Counter />
+                    <Description />
                     <Navigator />
                     <QRButton />
                 </>
@@ -41,7 +43,7 @@ export default function App() {
             </Canvas>
 
 
-            <div style={{ fontFamily: 'Times' }}>
+            <div style={{ fontFamily: 'Courier New, Courier, monospace' }}>
                 <LoaderBelgian color={'white'} backgroundColor={'#070709'} />
             </div>
         </div >

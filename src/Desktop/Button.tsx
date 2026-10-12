@@ -8,13 +8,13 @@ export default function Button({ onClick, children, ...props }: ButtonProps) {
         <button
             {...props}
             style={{
-                height: '64px',
-                width: '64px',
+                height: '3em',
+                width: '3em',
                 borderRadius: '50%',
                 boxShadow: "0 0 0 3px #1a1a1a, 0 8px 32px rgba(0,0,0,0.18), 0 2px 8px rgba(0,0,0,0.10)",
                 border: "none",
                 padding: 0,
-                fontSize: '22px',
+                fontSize: '18px',
                 cursor: 'pointer',
                 ...props.style
             }}

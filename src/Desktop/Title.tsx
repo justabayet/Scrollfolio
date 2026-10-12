@@ -22,7 +22,7 @@ export default function Title() {
 
     return (
         <div className="overlay-container" onClick={openLinkedin} style={{ cursor: 'pointer', left: 16, top: 16 }}>
-            <div className={`overlay-text`} id="name">ANTHONY BAYET</div>
+            <div className={`overlay-text`} id="name">ANTHONY BAYET - CREATIVE DEVELOPER</div>
         </div>
     )
 }

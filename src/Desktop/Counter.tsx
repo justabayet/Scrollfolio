@@ -14,7 +14,7 @@ export default function Counter() {
         if (!el) return
 
         gsap.fromTo(el,
-            { x: 100, opacity: 0 },
+            { x: 10, opacity: 0 },
             { x: 0, opacity: 1, duration: 0.25, ease: "power2.out" }
         )
     }, [pageNumber])
