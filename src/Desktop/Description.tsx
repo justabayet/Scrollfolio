@@ -6,6 +6,7 @@ gsap.registerPlugin(useGSAP)
 
 const descriptions = [
     { title: 'Arveye', tags: ['web', 'sensors'] },
+    { title: 'Sagama', tags: ['web', 'art'] },
     { title: 'Haquenne T. Gallery', tags: ['web', '3D', 'shader'] },
     { title: 'Christmas Card', tags: ['web', 'sensors'] },
     { title: 'Mosaic', tags: ['android', 'wallpaper', 'generative'] },

@@ -6,6 +6,7 @@ import arveyeWallpaper from './assets/videos/arveye-wallpaper.mp4'
 import shaderRiver from './assets/videos/shader-river.mp4'
 import arveyeChristmas from './assets/videos/arveye-christmas.mp4'
 import mosaic from './assets/videos/mosaic.mp4'
+import sagama from './assets/videos/sagama.mp4'
 
 import photoGalleryBackground from './assets/thumbnails/photo-gallery.webp'
 import arveyeKikkBackground from './assets/thumbnails/arveye-kikk.webp'
@@ -15,6 +16,7 @@ import arveyeWallpaperBackground from './assets/thumbnails/arveye-wallpaper.webp
 import shaderRiverBackground from './assets/thumbnails/shader-river.webp'
 import arveyeChristmasBackground from './assets/thumbnails/arveye-christmas.webp'
 import mosaicBackground from './assets/thumbnails/mosaic.webp'
+import sagamaBackground from './assets/thumbnails/sagama.webp'
 
 interface Project {
     title: string
@@ -41,6 +43,20 @@ This project has been built on top of a previous iteration, Arveye: Foundation, 
         video: arveyeThread,
         background: arveyeThreadBackground,
         alt: 'Arveye Destinêye'
+    },
+    {
+        title: 'Sagama 🏔️ - Web',
+        url: 'https://sagama.justabayet.com/',
+        description: `Sagama is about trying to reach a goal with no certainty of the path you are taking.
+
+Some goals take you off the beaten path. There you could know and visualize your ultimate goal. However, nothing will tell you for sure if you are in the right direction or if you are actually making any progress.
+
+In addition, nowadays, generic motivational quotes try to pour energy on these uncertainties and doubts. But what happens to all that energy when you are not convinced your own actions are meaningful?
+
+Sagama is meant as a simple expression of motivation and doubt.`,
+        video: sagama,
+        background: sagamaBackground,
+        alt: 'Sagama'
     },
     {
         title: 'Digital Photo Gallery',
