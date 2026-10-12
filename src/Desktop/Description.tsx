@@ -10,7 +10,7 @@ const descriptions = [
     { title: 'Haquenne T. Gallery', tags: ['web', '3D', 'shader'] },
     { title: 'Christmas Card', tags: ['web', 'sensors'] },
     { title: 'Mosaic', tags: ['android', 'wallpaper', 'generative'] },
-    { title: 'Aweye', tags: ['web', 'sensors'] },
+    // { title: 'Aweye', tags: ['web', 'sensors'] },
     { title: 'Solrece', tags: ['web', 'sensors'] },
     { title: 'Shaders', tags: ['web', 'glsl', 'generative'] },
     { title: 'Solrece (wallpaper)', tags: ['android', 'wallpaper', 'sensors'] },

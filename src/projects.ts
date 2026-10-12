@@ -1,5 +1,5 @@
 import photoGallery from './assets/videos/photo-gallery.mp4'
-import arveyeKikk from './assets/videos/arveye-kikk.mp4'
+// import arveyeKikk from './assets/videos/arveye-kikk.mp4'
 import arveyeStoele from './assets/videos/arveye-stoele.mp4'
 import arveyeThread from './assets/videos/arveye-thread.mp4'
 import arveyeWallpaper from './assets/videos/arveye-wallpaper.mp4'
@@ -9,7 +9,7 @@ import mosaic from './assets/videos/mosaic.mp4'
 import sagama from './assets/videos/sagama.mp4'
 
 import photoGalleryBackground from './assets/thumbnails/photo-gallery.webp'
-import arveyeKikkBackground from './assets/thumbnails/arveye-kikk.webp'
+// import arveyeKikkBackground from './assets/thumbnails/arveye-kikk.webp'
 import arveyeStoeleBackground from './assets/thumbnails/arveye-stoele.webp'
 import arveyeThreadBackground from './assets/thumbnails/arveye-thread.webp'
 import arveyeWallpaperBackground from './assets/thumbnails/arveye-wallpaper.webp'
@@ -106,22 +106,22 @@ Technology: Opengl ES for high performance animation.`,
         background: mosaicBackground,
         alt: 'Mosaic'
     },
-    {
-        title: 'Arveye Aweye - Web',
-        url: 'https://proximity.justabayet.com/?view=kikk',
-        description: `Exploring new places is fantastic but can be overwhelming. With so much to see and so little guidance, it is easy to worry about missing something.
+    //     {
+    //         title: 'Arveye Aweye - Web',
+    //         url: 'https://proximity.justabayet.com/?view=kikk',
+    //         description: `Exploring new places is fantastic but can be overwhelming. With so much to see and so little guidance, it is easy to worry about missing something.
 
-Aweye is here to turn modern exploration into a gamified experience and a dynamic artwork, guiding you through the streets of Barcelona, never missing a glimpse of its Spanish charm, and returning with an eternal digital souvenir, or accompanying you in the Universal Exposition across the many pavilions, piece by piece, assembling an artwork as a symbol of unity and mutual respect.
+    // Aweye is here to turn modern exploration into a gamified experience and a dynamic artwork, guiding you through the streets of Barcelona, never missing a glimpse of its Spanish charm, and returning with an eternal digital souvenir, or accompanying you in the Universal Exposition across the many pavilions, piece by piece, assembling an artwork as a symbol of unity and mutual respect.
 
-In fact, Aweye is a gamified compass, guiding you to collect QR codes, each of them unlocking a new destination and a part of the artwork. Each artwork represents the place you are visiting, being uniquely tailored to reflect the character and personality of that place.
+    // In fact, Aweye is a gamified compass, guiding you to collect QR codes, each of them unlocking a new destination and a part of the artwork. Each artwork represents the place you are visiting, being uniquely tailored to reflect the character and personality of that place.
 
-And this is only the beginning. The project still has many possibilities for new directions and creative depths to explore. Additionally, built upon Arveye: Foundation, it demonstrates the adaptability and reusability of software. Starting as a purely artistic project, it’s now revealing very practical applications as well.
+    // And this is only the beginning. The project still has many possibilities for new directions and creative depths to explore. Additionally, built upon Arveye: Foundation, it demonstrates the adaptability and reusability of software. Starting as a purely artistic project, it’s now revealing very practical applications as well.
 
-PS: About this specific representation, it is a Voronoi diagram, which is used to represent intricate biological structures such as cells. It reflects the notion that every human creation and celebration, be it festivities, fascinating architectures, or cities, they all are like building blocks of life.`,
-        video: arveyeKikk,
-        background: arveyeKikkBackground,
-        alt: 'Arveye Aweye'
-    },
+    // PS: About this specific representation, it is a Voronoi diagram, which is used to represent intricate biological structures such as cells. It reflects the notion that every human creation and celebration, be it festivities, fascinating architectures, or cities, they all are like building blocks of life.`,
+    //         video: arveyeKikk,
+    //         background: arveyeKikkBackground,
+    //         alt: 'Arveye Aweye'
+    //     },
     {
         title: 'Arveye Solrece - Web',
         description: `We are all solar systems of our own. Each of us is a star, casting our personal light on the people we are connected to. At the same time, every person we know reflects their own light back, shaping who we are. These symbiotic exchanges of influence are represented here as a solar system: you at the center, and your loved ones as the planets that always remain part of your orbit.
