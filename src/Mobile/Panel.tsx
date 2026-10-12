@@ -74,7 +74,7 @@ function Panel({
             {children}
             {/* Description */}
 
-            <div
+            <motion.div
                 onClick={toggleCollapse}
 
 
@@ -92,9 +92,24 @@ function Panel({
                     flexDirection: 'column',
                     justifyContent: 'end',
                     pointerEvents: 'none',
-                    background: 'linear-gradient(transparent, #050e1528, 10em, #050e1573, 18em, rgba(5, 14, 21, 0.53))',
-                    height: '16em'
-                }}>
+                    backdropFilter: 'blur(0px)',
+                    WebkitBackdropFilter: 'blur(0px)',
+                    textShadow: '0 0px 3px rgb(0, 0, 0)',
+                    height: '11em'
+                }}
+
+                initial={{ backdropFilter: 'blur(0px)' }}
+                animate={
+                    collapsedDescription
+                        ? {
+                            backdropFilter: 'blur(0px)',
+                            transition: { duration: 0 },
+                        }
+                        : {
+                            backdropFilter: 'blur(6px)',
+                            transition: { duration: 0.3, ease: 'easeIn' },
+                        }
+                }>
                 <div
                     onClick={toggleCollapse}
                     style={{
@@ -146,7 +161,7 @@ function Panel({
                             </div>
                         </motion.div>}
                 </div>
-            </div >
+            </motion.div >
             {/* Buttons */}
             < div style={{
                 position: 'absolute',

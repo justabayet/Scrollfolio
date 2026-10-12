@@ -6,8 +6,8 @@
     color-scheme: light dark;
     background-color: #242424;
 
-    --color-accent: #fff7d6;
-    --color-primary: #0f293e;
+    --color-accent: #ffffff;
+    --color-primary: #242424;
     color: white;
 }
 
@@ -27,7 +27,7 @@ body {
     place-items: center;
     min-width: 320px;
     min-height: 100dvh;
-    background: linear-gradient(rgb(8, 23, 35), rgb(11, 30, 46));
+    background: #111111;
     overflow: hidden;
 }
 

@@ -1,6 +1,5 @@
 
 import arrowDown from '../assets/down-chevron-svg.svg'
-import BlurIn from './BlurIn';
 import { motion, type AnimationGeneratorType } from 'framer-motion'
 
 const keyframes = `
@@ -20,6 +19,7 @@ function HomePage({ nextElement }: HomePageProps) {
                 width: '100%',
                 height: '100%',
                 color: 'var(--color-accent)',
+                backgroundColor: '#111111',
                 display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
@@ -31,13 +31,25 @@ function HomePage({ nextElement }: HomePageProps) {
                     padding: '12px',
                     color: 'white'
                 }}>
-                    <BlurIn><h1>Anthony Bayet</h1></BlurIn>
-                    <BlurIn><h2 >Creative Developer 🇧🇪</h2></BlurIn>
-
-                    <motion.div
+                    <motion.h1
                         initial={{ opacity: 0, y: -18 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1.8, delay: 1.3, type: 'spring' as AnimationGeneratorType }}
+                        transition={{ duration: 1.8, delay: 0.3, type: 'spring' as AnimationGeneratorType }}
+                    >
+                        <h1 style={{ fontSize: 52 }}>Anthony Bayet</h1>
+                    </motion.h1>
+                    <motion.h1
+                        initial={{ opacity: 0, y: -22 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1.8, delay: 0.5, type: 'spring' as AnimationGeneratorType }}
+                    >
+                        <h2 style={{ fontSize: 24 }}>Creative Developer 🇧🇪</h2>
+                    </motion.h1>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: -28 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 1.8, delay: 0.8, type: 'spring' as AnimationGeneratorType }}
                     >
                         <p style={{
                             padding: '24px 16px 0px 16px',
@@ -57,7 +69,7 @@ function HomePage({ nextElement }: HomePageProps) {
             <motion.div
                 initial={{ y: -40, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
-                transition={{ duration: 0.6, delay: 1.3 }}
+                transition={{ duration: 0.8, delay: 1.3 }}
                 onClick={() => {
                     if (nextElement.current == null) return
                     nextElement.current.scrollIntoView({ behavior: 'smooth' })
@@ -79,7 +91,7 @@ function HomePage({ nextElement }: HomePageProps) {
                 <style>{keyframes}</style>
                 <img style={{
                     paddingTop: 3,
-                    animation: '.5s cubic-bezier(0, 0.35, 0.47, 0.99) 1.9s infinite alternate none running bounce',
+                    animation: '.5s cubic-bezier(0, 0.35, 0.47, 0.99) 1.3s infinite alternate none running bounce',
                 }} src={arrowDown} width={56} height={56} alt='Down Arrow' />
             </motion.div>
         </>
